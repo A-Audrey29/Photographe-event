@@ -26,7 +26,7 @@ window.onclick = function(event) {
     }
 }
 
-    // bouton contact du menu
+    // intégration du bouton contact dans le menu
 
 // Sélectionner le bouton et la div
 var btn = document.getElementById("myBtn");
