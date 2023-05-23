@@ -1,0 +1,27 @@
+.navbar {
+    display: flex;
+    list-style: none;
+}
+
+.header {
+    margin: 28px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-main-container{
+    display: flex;
+}
+
+.menu-item {
+    font-family: 'Space-mono';
+    font-size: 16px;
+    font-weight: 400;
+
+    padding-left: 2.8em;
+}
+
+#myBtn{
+    cursor: pointer;
+}
