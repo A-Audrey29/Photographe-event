@@ -1,0 +1,18 @@
+.photo-info{
+    display: flex;
+    font-family: 'space-mono';
+    font-size: 0.87em;
+
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.photo-container{
+    width: 50vw;
+}
+
+.photo-titre{
+    font-family: 'space-mono-italic';
+    font-size: 4.1em;
+    font-weight: 400;
+}

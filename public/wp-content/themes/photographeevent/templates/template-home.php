@@ -7,22 +7,8 @@
 
 <?php get_header(); ?>
 
-<p>page.php</p>
+<p>page home</p>
 
-
-<div class="hero">
-
-</div>
-
-
-<div class="filter">
-
-</div>
-
-
-<div class="photos">
-
-</div>
-
+<?php get_template_part('template-parts/content-photo'); ?>
 
 <?php get_footer(); ?>

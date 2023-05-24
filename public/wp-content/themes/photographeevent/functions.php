@@ -60,7 +60,14 @@ add_filter('nav_menu_link_attributes', 'photographeevent_menu_link_class');
 
 // ajout des taxonomies
 
-$terms = get_terms( array(
+$terms = get_terms(array(
     'taxonomy'   => 'post_tag',
     'hide_empty' => false,
-) );
+));
+
+
+function add_last_nav_item($items)
+{
+    return $items .= '<li class="menu-item nav-item"><a href="#" id="myBtn" role="button" data-toggle="modal">CONTACT</a></li>';
+}
+add_filter('wp_nav_menu_items', 'add_last_nav_item');

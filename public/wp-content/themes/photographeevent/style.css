@@ -15,10 +15,25 @@ Requires PHP: 7.4
 @import "assets/css/header.css";
 @import "assets/css/footer.css";
 @import "assets/css/contact.css";
+@import "assets/css/single-photo.css";
+
+
+html{
+    max-width: 1440px;
+    margin: 0;
+
+}
 
 a {
     text-decoration: none;
     color: black;
 }
 
+img {
+    max-width: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
 

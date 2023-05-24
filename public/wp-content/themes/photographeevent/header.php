@@ -18,7 +18,7 @@
             'theme_lacation' => 'main',
             // 'container' => false,
             'menu_class' => 'navbar'
-        ]); ?><button id="myBtn" class="menu-item">CONTACT</button>
+        ]); ?>
 
     </header>
     <?php wp_body_open(); ?>

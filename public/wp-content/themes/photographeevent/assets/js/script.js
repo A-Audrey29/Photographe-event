@@ -29,8 +29,8 @@ window.onclick = function(event) {
     // intégration du bouton contact dans le menu
 
 // Sélectionner le bouton et la div
-var btn = document.getElementById("myBtn");
-var menuContainer = document.querySelector(".menu-main-container");
+// var btn = document.getElementById("myBtn");
+// var menuContainer = document.querySelector(".menu-main-container");
 
-// Déplacer le bouton dans la div
-menuContainer.appendChild(btn);
+// // Déplacer le bouton dans la div
+// menuContainer.appendChild(btn);
