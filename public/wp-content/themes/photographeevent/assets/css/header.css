@@ -4,7 +4,7 @@
 }
 
 .header {
-    margin: 28px 7%;
+    margin: 28px 5em;
     display: flex;
     justify-content: space-between;
     align-items: center;

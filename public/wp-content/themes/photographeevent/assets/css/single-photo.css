@@ -1,18 +1,37 @@
-.photo-info{
+li {
     display: flex;
+    align-items: center;
+}
+
+.info-tx {
+    margin: 4px 0px;
+}
+
+.part{
+    flex: 1;
+}
+
+.photo-info {
     font-family: 'space-mono';
     font-size: 0.87em;
+    letter-spacing: 0.1em;
+    line-height: 21px;
+    margin: 5.5em;  
 
+    display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
 
-.photo-container{
+.photo-container {
     width: 50vw;
 }
 
-.photo-titre{
+.photo-titre {
     font-family: 'space-mono-italic';
     font-size: 4.1em;
     font-weight: 400;
+    line-height: 58px;
+    padding-bottom: 20px;
 }
+

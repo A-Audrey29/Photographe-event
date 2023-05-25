@@ -20,7 +20,7 @@ Requires PHP: 7.4
 
 html{
     max-width: 1440px;
-    margin: 0;
+    margin: auto;
 
 }
 
@@ -35,5 +35,6 @@ img {
 
 ul {
     list-style-type: none;
+    padding: 0;
 }
 
