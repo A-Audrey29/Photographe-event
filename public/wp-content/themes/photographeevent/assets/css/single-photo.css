@@ -3,28 +3,18 @@ li {
     align-items: center;
 }
 
-.info-tx {
-    margin: 4px 0px;
+.info {
+    margin-right: 3%;
+    padding-bottom: 43px;
+    border-bottom: 1px solid black;
 }
 
-.part{
+.part {
     flex: 1;
 }
 
-.photo-info {
-    font-family: 'space-mono';
-    font-size: 0.87em;
-    letter-spacing: 0.1em;
-    line-height: 21px;
-    margin: 5.5em;  
-
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.photo-container {
-    width: 50vw;
+.info-tx {
+    margin: 4px 0px;
 }
 
 .photo-titre {
@@ -33,5 +23,107 @@ li {
     font-weight: 400;
     line-height: 58px;
     padding-bottom: 20px;
+}
+
+.photo-info {
+    font-family: 'space-mono';
+    font-size: 0.87em;
+    letter-spacing: 0.1em;
+    line-height: 21px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.photo {
+    object-fit: contain;
+}
+
+.photo-container {
+    position: relative;
+    display: inline-block;
+}
+
+.icon-fullscreen {
+    position: absolute;
+    right: 0%;
+    top: 4%;
+    transform: translate(-50%, -50%);
+    background: url('../images/fullscreen.png') no-repeat;
+    width: 40px;
+    height: 40px; 
+    opacity: 0; /* L'icône est initialement invisible */
+    transition: opacity 0.3s; /* Ajoute une transition pour une apparition en douceur */
+    cursor: pointer;
+  }
+  
+  .photo-container:hover .icon-fullscreen {
+    opacity: 1; /* L'icône devient visible au survol */
+  }
+
+
+    /* section "cette photo vous interesse?" */
+
+  .more {
+    width: 100%;
+    height: 118px;
+   
+    border-bottom: 1px solid black;
+  }
+
+  .more-tx-btn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .more-tx {
+    font-family: 'poppins';
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  .more-fleches {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* section "vous aimerez aussi" */
+
+  .aimez-aussi {
+    display: flex;
+    flex-direction: column;
+  }
+  .photo-aimez-aussi-container {
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+  }
+
+  .aimer-aussi-titre {
+    font-family: 'space-mono';
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    padding-top: 77px;
+    padding-bottom: 35px;
+  }
+
+  .photo-aimez-aussi {
+    width: 35em;
+    height: 35em;
+    object-fit: cover;
+  }
+
+
+@media all and (max-width: 480px){
+
+    .photo-info {
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
 }
 

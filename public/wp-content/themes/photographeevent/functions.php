@@ -11,7 +11,7 @@ register_nav_menus(array(
     'footer' => 'Bas de page'
 ));
 
-// intégration CONTACT dans le menu
+// intégration de l'item CONTACT dans le menu
 
 function add_last_nav_item($items)
 {

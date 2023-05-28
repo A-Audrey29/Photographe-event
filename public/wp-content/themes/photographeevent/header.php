@@ -20,5 +20,20 @@
             'menu_class' => 'navbar'
         ]); ?>
 
+
+        <nav id="site-navigation" class="main-navigation navbar">
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                <div class="line line_one"></div>
+                <div class="line line_two"></div>
+                <div class="line line_three"></div>
+            </button>
+            <ul class="open_nav navbar-links">
+                <?php wp_nav_menu([
+                    'theme_lacation' => 'main',
+                    // 'container' => false,
+                    'menu_class' => 'navbar'
+                ]); ?>
+            </ul>
+
     </header>
     <?php wp_body_open(); ?>

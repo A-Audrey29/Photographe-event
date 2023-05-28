@@ -16,12 +16,17 @@ Requires PHP: 7.4
 @import "assets/css/footer.css";
 @import "assets/css/contact.css";
 @import "assets/css/single-photo.css";
+@import "assets/css/template-home.css";
 
 
 html{
     max-width: 1440px;
     margin: auto;
+}
 
+.home {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 a {

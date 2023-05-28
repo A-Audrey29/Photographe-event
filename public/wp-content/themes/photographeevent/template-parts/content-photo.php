@@ -24,6 +24,7 @@
 		</div>
 		<div class="photo-container part">
 			<li><img class="photo" src="<?php echo get_field('photo')['url']; ?>" alt="" /></li>
+			<span class="icon-fullscreen"></span>
 		</div>
 	</ul>
 </div>

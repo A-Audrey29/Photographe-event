@@ -1,0 +1,9 @@
+.nom-site {
+    font-family: 'space-mono-bolditalic';
+    font-size: 6em;
+    font-weight: 700;
+    line-height: 142px;
+    color: transparent;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+}
