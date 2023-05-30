@@ -14,11 +14,13 @@
             <img class="logo" src="<?php echo get_template_directory_uri(); ?>'/assets/images/Logo.png'" alt="Logo">
         </a>
 
-        <?php wp_nav_menu([
-            'theme_lacation' => 'main',
-            // 'container' => false,
-            'menu_class' => 'navbar'
-        ]); ?>
+        <div class="header-nav">
+            <?php wp_nav_menu([
+                'theme_lacation' => 'main',
+                // 'container' => false,
+                'menu_class' => 'navbar'
+            ]); ?>
+        </div>
 
 
         <nav id="site-navigation" class="main-navigation navbar">
