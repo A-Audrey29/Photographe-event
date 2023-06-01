@@ -1,3 +1,5 @@
+    /* Titre du site */
+
 .nom-site {
     font-family: 'space-mono-bolditalic';
     font-size: 6em;
@@ -7,3 +9,4 @@
     -webkit-text-stroke: 1px;
     -webkit-text-stroke-color: black;
 }
+

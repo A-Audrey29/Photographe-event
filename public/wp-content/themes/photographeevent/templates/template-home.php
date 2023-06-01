@@ -14,38 +14,18 @@
 <!-- hero -->
 
 
-<?php
-$args = array(
-    'post_type'      => 'photos',
-    'tax_query'      => array(
-        // array(
-        //     'taxonomy' => 'format',
-        //     'field'    => 'slug',
-        //     'terms'    => 'paysage',
-        // ),
-    ),
-    'orderby'        => 'rand',
-    'posts_per_page' => 1,
-);
 
-$hero = get_posts($args);
-
-if ($hero) {
-    $image = $hero[0];
-    $image_url = get_the_post_thumbnail_url($image->ID);
-
-    echo '<img class="hero_img" src="';
-    echo the_post_thumbnail_url();
-    echo '" />';
-}
-?>
-
-
-<!-- galerie -->
-
-
-
-
-
-
-<?php get_footer(); ?>
+<div class="accueil_aleatoire_photo">
+    <?php query_posts(
+        array(
+            'post_type' => 'photo',
+            'showposts' => 1,
+            'orderby' => 'rand',
+        )
+    ); ?>
+    <?php if (have_posts()) :
+        while (have_posts()) :
+            the_post(); ?>
+            <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" <?php
+                                                                                            endwhile;
+                                                                                        endif; ?> <?php get_footer(); ?>

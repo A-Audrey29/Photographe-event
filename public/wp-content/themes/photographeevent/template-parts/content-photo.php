@@ -23,8 +23,11 @@
 			</li>
 		</div>
 		<div class="photo-container part">
-			<li><img class="photo" id="main-photo" src="<?php echo get_field('photo')['url']; ?>" alt="" /></li>
-			<span id="icon-fullscreen"></span>
+			<?php if (has_post_thumbnail()) : ?>
+				<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" class="post-thumbnail" />
+			<?php endif; ?>
+			<?php the_content(); ?>
+
 		</div>
 	</ul>
 </div>

@@ -48,12 +48,15 @@ endwhile; // End of the loop.
 			$query->the_post();
 			$link = get_permalink();
 			$title = get_the_title();
-			$date = get_the_date(); ?>
-			<a href="<?php echo $link; ?>">
-				<img class="aimez-aussi-img" src="<?php echo get_field('photo')['url']; ?>" alt="#" />
-			</a>
+			$date = get_the_date();
+
+			if (has_post_thumbnail()) : ?>
+				<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" class="post-thumbnail" />
+			<?php endif;
+			the_content(); ?>
 		<?php endwhile;
 		?>
+
 	</div>
 </div>
 

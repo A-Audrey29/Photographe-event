@@ -1,6 +1,7 @@
 .info {
     margin-right: 3%;
     padding-bottom: 43px;
+    border-bottom: 1px solid;
 }
 
 .part {
@@ -62,7 +63,6 @@
   .more {
     width: 100%;
     height: 118px;
-    border-top: 1px solid black;
     border-bottom: 1px solid black;
 
     display: flex;
@@ -138,6 +138,7 @@
 .aimez-aussi-photos img{
     width: 39vw;
     height: 39vw;
+    padding-right: 1%;
     object-fit: cover;  
 }
 
