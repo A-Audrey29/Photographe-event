@@ -44,13 +44,23 @@ function photographeevent_menu_class($classes)
 add_filter('nav_menu_css_class', 'photographeevent_menu_class');
 
 
-// gestion de la class des liens
+// gestion de la class des liens des items
 function photographeevent_menu_link_class($attrs)
 {
     $attrs['class'] = 'nav-link';
     return $attrs;
 }
 add_filter('nav_menu_link_attributes', 'photographeevent_menu_link_class');
+
+
+// ajout des taxonomies
+
+$terms = get_terms(array(
+    'taxonomy'   => 'post_tag',
+    'hide_empty' => false,
+));
+
+
 
 
 // ajout du prtefolio sans ACF
@@ -80,21 +90,3 @@ add_filter('nav_menu_link_attributes', 'photographeevent_menu_link_class');
 //     register_post_type('portfolio', $args);
 // }
 // add_action('init', 'photographeevent_register_post_types'); // Le hook init lance la fonction
-
-
-// ajout des taxonomies
-
-$terms = get_terms(array(
-    'taxonomy'   => 'post_tag',
-    'hide_empty' => false,
-));
-
-
-function pass_data_to_modal()
-{
-    wp_enqueue_script('contact-script');
-    wp_localize_script('contact-script', 'custom_data', array(
-        'ref' => get_field('reference')
-    ));
-}
-add_action('wp_enqueue_scripts', 'pass_data_to_modal');

@@ -13,7 +13,30 @@
 
         // MENU BURGER
 
-// // récupérez le bouton du menu hamburger et la liste des liens
+//   toggleMenu()
+
+// récupérez le bouton du menu hamburger et la liste des liens
+const menuBtn = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.open_nav');
+
+// quand l'utilisateur clique sur le bouton, la liste des liens s'ouvre ou se ferme
+menuBtn.addEventListener('click', function() {
+  menu.classList.toggle('open');
+});
+
+
+// fermeture du menu burger
+function toggleMenu () {  
+    const navbar = document.querySelector('.main-navigation')
+    const burger = document.querySelector('.menu-toggle')
+    
+    burger.addEventListener('click', () => {    
+      navbar.classList.toggle('open-nav')
+    })
+  }
+  toggleMenu()
+
+  // // récupérez le bouton du menu hamburger et la liste des liens
 // const menuBtn = document.querySelector('.menu-toggle');
 // const menuList = document.querySelector('.open_nav');
 
@@ -47,26 +70,3 @@
 // //   $('.menu-toggle').on('click', function() {
 // //     $(this).parent().closest('.navbar-links').hide();
 // // });
-
-//   toggleMenu()
-
-// récupérez le bouton du menu hamburger et la liste des liens
-const menuBtn = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.open_nav');
-
-// quand l'utilisateur clique sur le bouton, la liste des liens s'ouvre ou se ferme
-menuBtn.addEventListener('click', function() {
-  menu.classList.toggle('open');
-});
-
-
-// fermeture du menu burger
-function toggleMenu () {  
-    const navbar = document.querySelector('.main-navigation')
-    const burger = document.querySelector('.menu-toggle')
-    
-    burger.addEventListener('click', () => {    
-      navbar.classList.toggle('open-nav')
-    })
-  }
-  toggleMenu()

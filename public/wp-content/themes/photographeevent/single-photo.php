@@ -35,74 +35,25 @@ endwhile; // End of the loop.
 	<div class="aimez-aussi-photos part">
 
 		<?php
-		// Récupérer les catégories associées à l'article en cours
-		$cat_id = get_the_category();
+		$cat_id = get_the_category()[0]->term_id;
+		$args = array(
+			'post_type' => 'photo',
+			'post__not_in' => array(get_the_ID()),
+			'cat' => $cat_id,
+			'posts_per_page' => 2,
+		);
+		$query = new WP_Query($args);
 
-		// Vérifier s'il y a des catégories
-		if ($cat_id) {
-			// Récupérer le premier ID de catégorie
-			$cat_id = get_the_category()[0]->term_id;
-
-			// Paramètres de la requête WP_Query
-			$args = array(
-				'post_type' => 'photos',
-				'cat' => $cat_id,
-				'posts_per_page' => 2,
-			);
-
-			// Exécuter la requête WP_Query
-			$query = new WP_Query($args);
-
-			// Vérifier s'il y a des images dans la catégorie
-			if ($query->have_posts()) {
-				// Boucle pour afficher les images
-				while ($query->have_posts()) {
-					$query->the_post();
-					$link = get_permalink();
-					$title = get_the_title();
-					$date = get_the_date();
-				} ?>
-				<a href="<?php the_post_thumbnail(); ?>">
-
-			<?php
-				// Réinitialiser la requête postdata
-				wp_reset_postdata();
-			} else {
-				// Aucune image à afficher dans cette catégorie
-				echo '<p class="texte">Il n\'y a pas encore d\'autres photos à afficher dans cette catégorie.</p>';
-			}
-		}
-
-			?>
-
-			<?php
-			$cat_id = get_the_category();
-			if (get_the_category() == 0) {
-
-				$cat_id = get_the_category()[0]->term_id;
-				$args = array(
-					'post_type' => 'photo',
-					'post__not_in' => array(get_the_ID()),
-					'cat' => $cat_id, //can be set to ID
-				);
-				$query = new WP_Query($args);
-
-				while ($query->have_posts()) :
-					$query->the_post();
-					$link = get_permalink();
-					$title = get_the_title();
-					$date = get_the_date(); ?>
-					<a href="<?php echo $link; ?>">
-						<img class="aimez-aussi-img" src="<?php echo get_field('photo')['url']; ?>" alt="#" />
-					</a>
-					<a href="<?php echo $link; ?>">
-						<img class="aimez-aussi-img" src="<?php echo get_field('photo')['url']; ?>" alt="#" />
-					</a>
-			<?php endwhile;
-			} else {
-				echo '<p class="message">Il n\'y a pas d\'autres photos à afficher dans cette catégorie.</p>';
-			}
-			?>
+		while ($query->have_posts()) :
+			$query->the_post();
+			$link = get_permalink();
+			$title = get_the_title();
+			$date = get_the_date(); ?>
+			<a href="<?php echo $link; ?>">
+				<img class="aimez-aussi-img" src="<?php echo get_field('photo')['url']; ?>" alt="#" />
+			</a>
+		<?php endwhile;
+		?>
 	</div>
 </div>
 

@@ -22,3 +22,15 @@ function photographeevent_scripts()
     wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'photographeevent_scripts');
+
+
+// ajout de la page contact-script
+
+function pass_data_to_modal()
+{
+    wp_enqueue_script('contact-script');
+    wp_localize_script('contact-script', 'custom_data', array(
+        'ref' => get_field('reference')
+    ));
+}
+add_action('wp_enqueue_scripts', 'pass_data_to_modal');
