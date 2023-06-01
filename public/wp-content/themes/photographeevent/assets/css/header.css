@@ -4,12 +4,14 @@
 }
 
 .header {
-    width: 100%;
     margin-top: 28px;
     margin-bottom: 66px;
+    margin: 0 10%;
 }
 
 .header-desktop {
+    height: 5em;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -70,7 +72,7 @@
     display:block;
     position: absolute;
     right: 10%;
-    top: 15px;
+    top: 69px;
     padding:0;
     width:45px;
     height:45px;

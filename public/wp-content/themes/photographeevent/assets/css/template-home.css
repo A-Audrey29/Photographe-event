@@ -1,4 +1,10 @@
-    /* Titre du site */
+.hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+   
+   /* Titre du site */
 
 .nom-site {
     font-family: 'space-mono-bolditalic';
@@ -6,7 +12,40 @@
     font-weight: 700;
     line-height: 142px;
     color: transparent;
-    -webkit-text-stroke: 1px;
-    -webkit-text-stroke-color: black;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: white;
+
+    position: absolute;
 }
 
+    /* background image */
+
+.hero-container > img {
+    width: 100%;
+    height: 53.8vw;
+    object-fit: cover;
+}
+
+@media all and (max-width: 1000px) {
+    .nom-site {
+        font-size: 4.5em;
+    }
+}
+
+@media all and (max-width: 800px) {
+    .nom-site {
+        font-size: 3.5em;
+    }
+}
+
+@media all and (max-width: 620px) {
+    .nom-site {
+        font-size: 2.5em;
+    }
+}
+
+@media all and (max-width: 440px) {
+    .nom-site {
+        font-size: 1.6em;
+    }
+}

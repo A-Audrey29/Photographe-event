@@ -25,6 +25,7 @@
     font-size: 0.87em;
     letter-spacing: 0.1em;
     line-height: 21px;
+    padding: 0 10%;
 
     display: flex;
     justify-content: space-between;
@@ -61,8 +62,8 @@
     /* section "cette photo vous interesse?" */
 
   .more {
-    width: 100%;
     height: 118px;
+    margin: 0 10%;
     border-bottom: 1px solid black;
 
     display: flex;
@@ -112,6 +113,8 @@
   /* section "vous aimerez aussi" */
 
   .aimez-aussi {
+    margin: 0 10%;
+
     display: flex;
     flex-direction: column;
   }
@@ -143,9 +146,11 @@
 }
 
   .aimez-aussi-btn-conatainer{
-        display: flex;
-        justify-content: center;
-        border-bottom: 1px solid black;
+    margin: 0 10%;
+
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
   }
 
   .aimez-aussi-btn {
