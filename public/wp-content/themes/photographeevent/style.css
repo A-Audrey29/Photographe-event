@@ -17,6 +17,7 @@ Requires PHP: 7.4
 @import "assets/css/contact.css";
 @import "assets/css/single-photo.css";
 @import "assets/css/template-home.css";
+@import "assets/css/lightbox.css";
 
 
 html{
@@ -25,13 +26,12 @@ html{
 }
 
 .home {
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 a {
     text-decoration: none;
-    color: black;
 }
 
 img {

@@ -87,3 +87,16 @@ margin: 2px !important;
 border: none;
 background-color: transparent;
 }
+
+@media all and (max-width: 480px){
+
+  .modal-content {
+    width: 85%;
+    height: 567px;
+  }
+
+  .wpforms-field-medium, .wpforms-field-large {
+    width: 190px !important;
+    
+}
+}

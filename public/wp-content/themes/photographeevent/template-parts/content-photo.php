@@ -6,7 +6,7 @@
 				<h2 class="photo-titre"><?php echo get_field('titre'); ?></h2>
 			</li>
 			<li>
-				<p class="ref info-tx">RÉFÉRENCE : </p><?php echo get_field('reference'); ?>
+				<p class="ref info-tx">RÉFÉRENCE : <span id="reference"><?php echo get_field('reference'); ?></span></p>
 			</li>
 			<li>
 				<p class="categorie info-tx">CATÉGORIE :</p><?php echo get_field('categorie'); ?>
@@ -23,8 +23,8 @@
 			</li>
 		</div>
 		<div class="photo-container part">
-			<li><img class="photo" src="<?php echo get_field('photo')['url']; ?>" alt="" /></li>
-			<span class="icon-fullscreen"></span>
+			<li><img class="photo" id="main-photo" src="<?php echo get_field('photo')['url']; ?>" alt="" /></li>
+			<span id="icon-fullscreen"></span>
 		</div>
 	</ul>
 </div>

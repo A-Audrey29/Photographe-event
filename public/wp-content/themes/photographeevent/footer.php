@@ -1,6 +1,13 @@
 <footer class="site_footer">
 
-    <?php get_template_part('template-parts/content', 'contact'); ?>
+    <?php
+    get_template_part('template-parts/content', 'contact');
+    get_template_part('template-parts/content', 'lightbox');
+    ?>
+    
+    <ul>
+        <li>Tous droits réservés</li>
+    </ul>
 
     <?php wp_nav_menu([
         'theme_location' => 'footer',
@@ -8,6 +15,7 @@
         'menu_class' => 'footer_nav',
     ]);
     ?>
+
 </footer>
 
 <?php wp_footer(); ?>

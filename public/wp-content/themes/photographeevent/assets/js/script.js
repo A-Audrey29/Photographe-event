@@ -1,30 +1,5 @@
-      // FORMULAIRE DE CONTACT
 
-// Get the modal
-var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
 
     // intégration du bouton contact dans le menu
 
@@ -38,13 +13,50 @@ window.onclick = function(event) {
 
         // MENU BURGER
 
+// // récupérez le bouton du menu hamburger et la liste des liens
+// const menuBtn = document.querySelector('.menu-toggle');
+// const menuList = document.querySelector('.open_nav');
+
+// // quand l'utilisateur clique sur le bouton, la liste des liens s'ouvre ou se ferme
+// menuBtn.addEventListener('click', function() {
+//   menuList.classList.toggle('open');
+//   menu.classList.toggle('open');
+// });
+
+
+//     // ouverture du menu burger 
+
+// const menuToggle = document.querySelector('.menu-toggle');
+// const menu = document.querySelector('.open_nav');
+
+// menuToggle.addEventListener('click', function() {
+//   menuToggle.classList.toggle('open')
+//   menu.classList.toggle('open')
+// })
+
+
+//     // fermeture du menu burger
+// function toggleMenu () {  
+//     const navbar = document.querySelector('.main-navigation')
+//     const burger = document.querySelector('.menu-toggle')
+    
+//     burger.addEventListener('click', () => {    
+//       navbar.classList.toggle('open-nav')
+//     })
+//   }
+// //   $('.menu-toggle').on('click', function() {
+// //     $(this).parent().closest('.navbar-links').hide();
+// // });
+
+//   toggleMenu()
+
 // récupérez le bouton du menu hamburger et la liste des liens
 const menuBtn = document.querySelector('.menu-toggle');
-const menuList = document.querySelector('.open_nav');
+const menu = document.querySelector('.open_nav');
 
 // quand l'utilisateur clique sur le bouton, la liste des liens s'ouvre ou se ferme
 menuBtn.addEventListener('click', function() {
-  menuList.classList.toggle('show');
+  menu.classList.toggle('open');
 });
 
 

@@ -4,7 +4,6 @@
     justify-content: space-evenly;
 }
 
-
 @media all and (max-width: 480px){
     .footer_nav {
         flex-direction: column;

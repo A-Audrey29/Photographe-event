@@ -39,7 +39,7 @@
     display: inline-block;
 }
 
-.icon-fullscreen {
+#icon-fullscreen {
     position: absolute;
     right: 0%;
     top: 4%;
@@ -52,7 +52,7 @@
     cursor: pointer;
   }
   
-  .photo-container:hover .icon-fullscreen {
+  .photo-container:hover #icon-fullscreen {
     opacity: 1; /* L'icône devient visible au survol */
   }
 
@@ -161,8 +161,6 @@
         flex-direction: column-reverse;
         align-items: flex-start;
     }
-
-
 }
 
 @media all and (max-width: 480px){
