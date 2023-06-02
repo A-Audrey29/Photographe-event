@@ -51,15 +51,42 @@
 }
 
 
-
-
     /* galerie */
 
-.galerie {
+.galerie{
     margin: 0 10%;
+    
+    display: flex;
+    flex-direction: column;
 }
 
-.galerie-img {
-    height: 27.8vw;
-    width: 27.8vw;
+.galerie-photos {
+    display: flex;
+}
+
+.galerie-container {
+    columns: 2;
+}
+
+.galerie-container img{
+    width: 39vw;
+    height: 39vw;
+    padding-right: 1%;
+}
+
+@media all and (max-width: 480px){
+
+    .galerie-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .galerie-container img, .galerie-img{
+        width: 75vw;
+        height: 75vw;
+        padding-top: 2%;
+        padding-right: 0;
+    }
+ 
 }

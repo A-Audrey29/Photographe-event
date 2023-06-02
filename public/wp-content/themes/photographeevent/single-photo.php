@@ -28,11 +28,11 @@ endwhile; // End of the loop.
 	</div>
 </div>
 
-<div class="aimez-aussi">
+<div class="galerie">
 
 	<h3 class="aimez-aussi-titre">VOUS AIMEREZ AUSSI</h3>
 
-	<div class="aimez-aussi-photos part">
+	<div class="galerie-container aimez-aussi-flex">
 
 		<?php
 		$cat_id = get_the_category()[0]->term_id;

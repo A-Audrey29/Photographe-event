@@ -43,7 +43,7 @@
     ); ?>
 
 
-    <div class="galerie-single-photo">
+    <div class="galerie-container">
         <?php
         if (have_posts()) :
             while (have_posts()) :
