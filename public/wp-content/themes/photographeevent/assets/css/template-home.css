@@ -49,3 +49,17 @@
         font-size: 1.6em;
     }
 }
+
+
+
+
+    /* galerie */
+
+.galerie {
+    margin: 0 10%;
+}
+
+.galerie-img {
+    height: 27.8vw;
+    width: 27.8vw;
+}
