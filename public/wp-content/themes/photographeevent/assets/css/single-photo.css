@@ -41,24 +41,6 @@
     display: inline-block;
 }
 
-#icon-fullscreen {
-    position: absolute;
-    right: 0%;
-    top: 4%;
-    transform: translate(-50%, -50%);
-    background: url('../images/fullscreen.png') no-repeat;
-    width: 40px;
-    height: 40px; 
-    opacity: 0; /* L'icône est initialement invisible */
-    transition: opacity 0.3s; /* Ajoute une transition pour une apparition en douceur */
-    cursor: pointer;
-  }
-  
-  .photo-container:hover #icon-fullscreen {
-    opacity: 1; /* L'icône devient visible au survol */
-  }
-
-
     /* section "cette photo vous interesse?" */
 
   .more {

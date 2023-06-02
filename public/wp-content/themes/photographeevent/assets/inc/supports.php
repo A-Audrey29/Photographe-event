@@ -12,5 +12,7 @@ function photographeevent_supports()
     add_theme_support('custom-logo');
     add_theme_support('html5');
     // register_nav_menu('main', 'menu principal');
+    // format des images ;
+    // add_image_size('thumbnail-medium', 500, 500, true);
 }
 add_action('after_setup_theme', 'photographeevent_supports');

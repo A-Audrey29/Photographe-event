@@ -4,7 +4,6 @@ require_once('assets/inc/supports.php');
 require_once('assets/inc/assets.php');
 require_once('assets/inc/apparence.php');
 
-
 //déclaration des 2 emplacements des menu
 register_nav_menus(array(
     'main' => 'Menu principal',
@@ -59,9 +58,6 @@ $terms = get_terms(array(
     'taxonomy'   => 'post_tag',
     'hide_empty' => false,
 ));
-
-
-
 
 // ajout du prtefolio sans ACF
 // function photographeevent_register_post_types()

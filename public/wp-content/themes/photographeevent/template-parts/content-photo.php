@@ -25,6 +25,7 @@
 		<div class="photo-container part">
 			<?php if (has_post_thumbnail()) : ?>
 				<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" class="post-thumbnail" />
+				<span class="icon-fullscreen"></span>
 			<?php endif; ?>
 			<?php the_content(); ?>
 

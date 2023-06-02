@@ -32,7 +32,7 @@ endwhile; // End of the loop.
 
 	<h3 class="aimez-aussi-titre">VOUS AIMEREZ AUSSI</h3>
 
-	<div class="galerie-container aimez-aussi-flex">
+	<div class="galerie-container">
 
 		<?php
 		$cat_id = get_the_category()[0]->term_id;
@@ -51,12 +51,13 @@ endwhile; // End of the loop.
 			$date = get_the_date();
 
 			if (has_post_thumbnail()) : ?>
-				<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" class="post-thumbnail" />
+				<div class="galerie-img">
+					<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" class="post-thumbnail" />
+				</div>
 			<?php endif;
 			the_content(); ?>
 		<?php endwhile;
 		?>
-
 	</div>
 </div>
 
