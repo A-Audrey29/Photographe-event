@@ -59,7 +59,7 @@ $terms = get_terms(array(
     'hide_empty' => false,
 ));
 
-// ajout du prtefolio sans ACF
+// ajout du prtefolio dans ACF
 // function photographeevent_register_post_types()
 // {
 

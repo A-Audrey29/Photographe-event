@@ -52,7 +52,8 @@ endwhile; // End of the loop.
 
 			if (has_post_thumbnail()) : ?>
 				<div class="galerie-img">
-					<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" class="post-thumbnail" />
+					<!-- <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" class="post-thumbnail" /> -->
+					<?php affichageGalerie($args, false); ?>
 				</div>
 			<?php endif;
 			the_content(); ?>

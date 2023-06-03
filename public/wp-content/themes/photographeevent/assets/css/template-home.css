@@ -22,8 +22,7 @@
 
 .hero-container > img {
     width: 100%;
-    height: 60em;
-    object-fit: cover;
+    height: 60vw;
 }
 
 @media all and (max-width: 1000px) {
@@ -50,28 +49,9 @@
     }
 }
 
+    /* section galerie photos */
 
-    /* galerie photos */
-
-    /* .galerie-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    
-    .galerie-img {
-        width: 48%;
-        margin-bottom: 20px;
-    }
-    
-    @media screen and (max-width: 768px) {
-        .galerie-img {
-            width: 100%;
-        }
-    } */
-
-
-.galerie{
+.galerie {
     margin: 0 10%;
     
     display: flex;
@@ -105,37 +85,60 @@
     }
 }
 
-
         /* galerie icones et txt  */
 
-.galerie-img-titre {
-
+.galerie-img, .photo-container {
+    position: relative;
 }
 
-.galerie-cat {
-
+.galerie-img #icon-fullscreen, .photo-container #icon-fullscreen {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    transform: translate(50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+        
+.galerie-img #icon-oeil #icon-fullscreen, .photo-container #icon-oeil #icon-fullscreen {
+    display: block;
+    margin: 0 auto;
 }
 
+.galerie-img #icon-oeil, .photo-container #icon-oeil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
 
-.icon-fullscreen {
-    /* position: absolute;
-    right: 0%;
-    top: 4%;
-    /* transform: translate(-50%, -50%);
-    background: url('../images/fullscreen.png') no-repeat; */
-    /* width: 40px;
-    height: 40px;  */
-    /* opacity: 0; L'icône est initialement invisible */
-    /* transition: opacity 0.3s; Ajoute une transition pour une apparition en douceur */
-    /* cursor: pointer;  */
-  }
+#icon-oeil, #icon-fullscreen {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}        
+
+.galerie-img-info {
+    position: relative;
+    top: -3.5em;
+    color: white;
+    padding: 0 1em;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.galerie-img-info p {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
   
-  .photo-container:hover .icon-fullscreen {
-    opacity: 1; /* L'icône devient visible au survol */
-  }
-
-
-  .icon-oeil {
-    background-color: pink;
-  }
+.galerie-img:hover #icon-oeil, .galerie-img:hover #icon-fullscreen, 
+.photo-container:hover #icon-oeil, .photo-container:hover #icon-fullscreen
+.galerie-img-info:hover p {
+    opacity: 1;
+}
         
