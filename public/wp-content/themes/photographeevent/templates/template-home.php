@@ -47,6 +47,10 @@
         ?>
 
     </div>
+
+    <div class="galerie-btn-container">
+        <input class="galerie-btn" type="button" value="Charger plus">
+    </div>
 </section>
 
 <?php get_footer(); ?>

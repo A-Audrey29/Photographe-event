@@ -38,29 +38,31 @@ function affichageGalerie()
 ?>
             <div class="galerie-photo">
                 <div class="galerie-img">
-                    <img src="<?php echo $thumbnail_url[0]; ?>" alt="<?php echo $thumbnail_alt; ?>" title="<?php echo $article_title; ?>">
+                    <img id="img-fullscreen" src="<?php echo $thumbnail_url[0]; ?>" alt="<?php echo $thumbnail_alt; ?>" title="<?php echo $article_title; ?>">
                     <div class="galerie-hover-icon">
                         <a href="<?php echo get_post_permalink(); ?>">
                             <img id="icon-oeil" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_oeil.png" alt="Icône en forme d'oeil" />
                         </a>
-                        <img id="icon-fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/fullscreen.png" alt="Icône de plein écran" />
+                        <a href=" <?php get_template_directory_uri() ?> /template-parts/content-lightbox.php" target="_blank">
+                            <img id="icon-fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/fullscreen.png" alt="Icône de plein écran" />
+                        </a>
+                    </div>
+
+                    <div class="galerie-img-info">
+                        <p><?php echo $article_title; ?></p>
+                        <?php
+                        // Récupérer les catégories de l'article
+                        $categories = get_the_category();
+
+                        // Parcourir les catégories et afficher leurs noms
+                        if (!empty($categories)) {
+                            foreach ($categories as $category) {
+                                echo '<p class="galerie-cat">' . $category->name . '</p>';
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
-                <div class="galerie-img-info">
-                    <p><?php echo $article_title; ?></p>
-                    <?php
-                    // Récupérer les catégories de l'article
-                    $categories = get_the_category();
-
-                    // Parcourir les catégories et afficher leurs noms
-                    if (!empty($categories)) {
-                        foreach ($categories as $category) {
-                            echo '<p class="galerie-cat">' . $category->name . '</p>';
-                        }
-                    }
-                    ?>
-                </div>
-
             </div>
 <?php
         endwhile;

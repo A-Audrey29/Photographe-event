@@ -132,13 +132,34 @@
 }
 
 .galerie-img-info p {
+    height: 100%;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
   
 .galerie-img:hover #icon-oeil, .galerie-img:hover #icon-fullscreen, 
-.photo-container:hover #icon-oeil, .photo-container:hover #icon-fullscreen
+.photo-container:hover #icon-oeil, .photo-container:hover #icon-fullscreen,
 .galerie-img-info:hover p {
     opacity: 1;
 }
-        
+    
+/* #icon-oeil:hover {
+    opacity: 1;
+} */
+
+
+    /* bouton "charger plus" */
+
+.galerie-btn-container {
+
+
+    display: flex;
+    justify-content: center;
+}
+
+.galerie-btn {
+    font-family: 'space-mono';
+    font-size: 12px;
+    line-height: 17.77px;
+    padding: 8px 15px;
+}

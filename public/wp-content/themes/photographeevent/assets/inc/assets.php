@@ -24,7 +24,7 @@ function photographeevent_scripts()
 add_action('wp_enqueue_scripts', 'photographeevent_scripts');
 
 
-// ajout de la page contact-script
+// ajout de la page contact-script pour la modale
 
 function pass_data_to_modal()
 {
