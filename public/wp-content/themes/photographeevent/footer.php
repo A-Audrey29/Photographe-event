@@ -1,25 +1,21 @@
-<footer class="site_footer">
-
     <?php
     get_template_part('template-parts/content', 'contact');
     get_template_part('template-parts/content', 'lightbox');
     ?>
-    
-    <ul>
-        <li>Tous droits réservés</li>
-    </ul>
+    <footer class="footer">
 
-    <?php wp_nav_menu([
-        'theme_location' => 'footer',
-        'container' => false,
-        'menu_class' => 'footer_nav',
-    ]);
-    ?>
 
-</footer>
+        <?php wp_nav_menu([
+            'theme_location' => 'footer',
+            'container' => false,
+            'menu_class' => 'footer_nav',
+        ]);
+        ?>
 
-<?php wp_footer(); ?>
+    </footer>
 
-</body>
+    <?php wp_footer(); ?>
 
-</html>
+    </body>
+
+    </html>

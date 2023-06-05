@@ -1,6 +1,4 @@
-<!-- The Modal -->
 <div id="myModal" class="modal">
-    <!-- Modal content -->
     <div class="modal-content">
         <img class="img-contact" src="<?php echo get_template_directory_uri(); ?>'/assets/images/contact.png'" alt="contact">
 
@@ -10,5 +8,4 @@
             echo $shortcode_output
             ?></p>
     </div>
-
 </div>

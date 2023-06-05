@@ -21,6 +21,7 @@
                     // 'container' => false,
                     'menu_class' => 'navbar'
                 ]); ?>
+                <li><a href="#" id="myBtn" class="menu-item" role="button" data-toggle="modal">CONTACT</a></li>
             </div>
         </div>
 
@@ -40,6 +41,7 @@
                     // 'container' => false,
                     'menu_class' => 'navbar-burger'
                 ]); ?>
+                <li class="menu-item nav-item"><a href="#" id="myBtn" role="button" data-toggle="modal">CONTACT</a></li>
             </ul>
 
     </header>

@@ -7,7 +7,7 @@ function photographeevent_supports()
     // Ajouter automatiquement le titre du site dans l'en-tête du site
     add_theme_support('title-tag');
     // ajout de la gestion du menu
-    // add_theme_support('menus');
+    add_theme_support('menus');
     // ajout du logo dans le customizer
     add_theme_support('custom-logo');
     add_theme_support('html5');

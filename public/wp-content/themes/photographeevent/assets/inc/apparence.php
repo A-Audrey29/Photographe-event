@@ -43,7 +43,7 @@ function affichageGalerie()
                         <a href="<?php echo get_post_permalink(); ?>">
                             <img id="icon-oeil" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_oeil.png" alt="Icône en forme d'oeil" />
                         </a>
-                        <a href=" <?php get_template_directory_uri() ?> /template-parts/content-lightbox.php" target="_blank">
+                        <a href="#">
                             <img id="icon-fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/fullscreen.png" alt="Icône de plein écran" />
                         </a>
                     </div>

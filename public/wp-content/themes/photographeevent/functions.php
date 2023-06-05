@@ -4,33 +4,66 @@ require_once('assets/inc/supports.php');
 require_once('assets/inc/assets.php');
 require_once('assets/inc/apparence.php');
 
-//déclaration des 2 emplacements des menu
-register_nav_menus(array(
-    'main' => 'Menu principal',
-    'footer' => 'Bas de page'
-));
+
+function register_my_menus()
+{
+    register_nav_menus(
+        array(
+            'main' => __('Menu principal'),
+            'footer' => __('Bas de page'),
+        )
+    );
+}
+add_action('after_setup_theme', 'register_my_menus');
+
+// wp_nav_menu(array(
+//     'theme_location' => 'main',
+// ));
+
+
+
+//déclaration des 2 emplacements des menu cf supports
+// register_nav_menus(array(
+//     'main' => 'Menu principal',
+//     'footer' => 'Bas de page'
+// ));
 
 // intégration de l'item CONTACT dans le menu
 
-function add_last_nav_item($items)
-{
-    return $items .= '<li class="menu-item nav-item"><a href="#" id="myBtn" role="button" data-toggle="modal">CONTACT</a></li>';
-}
-add_filter('wp_nav_menu_items', 'add_last_nav_item');
-
-
-// uniquement dans le menu principal
-
-// function add_last_nav_item($items, $args)
+// function add_last_nav_item($items)
 // {
-//     // Vérifiez si le menu correspond au menu principal
-//     if ($args->theme_location == 'main') {
-//         $items .= '<li class="menu-item nav-item"><a href="#" id="myBtn" role="button" data-toggle="modal">CONTACT</a></li>';
-//     }
+//     return $items .= '<li class="menu-item nav-item"><a href="#" id="myBtn" role="button" data-toggle="modal">CONTACT</a></li>';
+// }
+// add_filter('wp_nav_menu_items', 'add_last_nav_item');
 
+
+
+
+//intégration mention tx " tous droits réservé "
+
+function add_last_nav_item($items, $args)
+{
+    // Vérifiez si le menu correspond au menu principal
+    if ($args->theme_location == 'footer') {
+        $items .= '<li>Tous droits réservés</li>';
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_items', 'add_last_nav_item', 10, 2);
+
+
+
+// intégration mention tx " tous droits réservé "
+
+// function ajouter_texte_menu_footer($items, $args)
+// {
+//     if ($args->theme_location == 'Bas de page') {
+//         $texte = '<li>Tous droits réservés</li>';
+//         $items .= $texte;
+//     }
 //     return $items;
 // }
-// add_filter('wp_nav_menu_items', 'add_last_nav_item', 10, 2);
+// add_filter('wp_nav_menu_items', 'ajouter_texte_menu_footer', 10, 2);
 
 
 

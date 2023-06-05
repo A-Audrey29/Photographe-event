@@ -1,5 +1,6 @@
 .navbar {
     display: flex;
+    align-items: center;
     list-style: none;
 }
 
@@ -21,11 +22,11 @@
     object-fit: contain;
 }
 
-.menu-main-container{
+/* .menu-main-container{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .menu-item {
     font-family: 'Space-mono';
