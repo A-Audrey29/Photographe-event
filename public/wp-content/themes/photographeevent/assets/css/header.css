@@ -1,85 +1,95 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    list-style: none;
+  display: flex;
+  align-items: center;
+  list-style: none;
 }
 
 .header {
-    margin-top: 28px;
-    margin-bottom: 66px;
-    margin: 0 10%;
+  margin-top: 28px;
+  margin-bottom: 66px;
+  margin: 0 10%;
 }
 
 .header-desktop {
-    height: 5em;
+  height: 5em;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-    object-fit: contain;
+  object-fit: contain;
 }
 
-/* .menu-main-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
 .menu-item {
-    font-family: 'Space-mono';
-    font-size: 16px;
-    font-weight: 400;
+  font-family: 'Space-mono';
+  font-size: 16px;
+  font-weight: 400;
+  
+  transition: transform .5s ease-in-out;
+}
 
-    padding-left: 2.8em;
+.navbar .menu-item {
+  padding-left: 2.8em;
+}
+
+.menu-item:hover {
+  transform: scale(1.2);
 }
 
 #myBtn, .nav-link{
-    cursor: pointer;
-    color: black;
+  cursor: pointer;
+  color: black;
+  margin: auto;
 }
-  
+
 
 /* intégration du menu burger pr mobile */
 
-  .open_nav {
-    display: none;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+.open_nav {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
   
-  .open {
-    display: block;
-  }
+.open {
+  display: block;
+}
 
-  .open_nav {
-    background-color: #E00000; 
-    position: absolute;
-    top: 112px;
-    height: 115vw;
-    width: 77vw;
-    padding-top: 40px;
-    z-index: 1000;
+.open_nav {
+  background-color: #E00000; 
+  position: absolute;
+  top: 133px;
+  height: 115vw;
+  width: 78vw;
+  padding-top: 40px;
+  z-index: 1000;
+}
 
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-  }
+.navbar-burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}  
+
+.navbar-burger .nav-link {
+  font-size: 1.43em;
+  padding-bottom: 50px;
+}
 
 .menu-toggle {
-    display:block;
-    position: absolute;
-    right: 10%;
-    top: 69px;
-    padding:0;
-    width:45px;
-    height:45px;
-    border:none;
-    background:transparent;
-    cursor:pointer;
+  display:block;
+  position: absolute;
+  right: 10%;
+  top: 69px;
+  padding:0;
+  width:45px;
+  height:45px;
+  border:none;
+  background:transparent;
+  cursor:pointer;
 }
 
 .main-navigation .line {
@@ -89,61 +99,77 @@
 	margin: auto;
 	margin-block: -2px;
 	width: 2.5em;
-    z-index: 9999;
-    position:relative;
-    transition: all .5s ease-in-out;
+  z-index: 9999;
+  position:relative;
+  transition: all .5s ease-in-out;
 } 
 
- .line_one {
-    transform:translateY(-12px)
-  }
-  .line_three {
-    transform:translateY(12px)
-  }
+.line_one {
+  transform:translateY(-12px)
+}
+.line_three {
+  transform:translateY(12px)
+}
 .open-nav .line_two {
-    width:0;
-    background:transparent;    
-  }
+  width:0;
+  background:transparent;    
+}
 .open-nav .line_one {
-    transform:rotate(45deg);
-  }
+  transform:rotate(45deg);
+}
 .open-nav .line_three {
-    transform:rotate(-45deg);
-  }  
+  transform:rotate(-45deg);
+}  
 
 
-  @media all and (max-width: 770px) {
-    .menu-item {
-        font-size: 16px;
-        padding-left: 1em;
-    }
+  /* animation à l'ouverture du menu burger */
+.open_nav.open {
+  animation: slide-down 1s ease;
+}
 
-    .logo {
-        max-width: 85%;
-    }
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media all and (max-width: 770px) {
+  .navbar .menu-item {
+      font-size: 16px;
+      padding-left: 1em;
   }
 
-  @media all and (max-width: 620px) {
-    .header-nav{
-        display: none;
-    }
+  .logo {
+      max-width: 85%;
+  }
+}
 
-    #myBtn, .accueil_item > a, .apropos_item > a{
-        color: white;
-        font-size: 2.75em;
-    }
+@media all and (max-width: 620px) {
+  .header-nav{
+      display: none;
   }
 
-  @media all and (min-width: 620px) {
-    .menu-toggle, .open_nav {
-        display: none;
-    }
+  #myBtn, .accueil_item > a, .apropos_item > a{
+      color: white;
+      font-size: 1.43em;
   }
+}
 
-  @media all and (max-width: 480px) {
-    .logo {
-        width: 70%;
-    }
+@media all and (min-width: 620px) {
+  .menu-toggle, .open_nav {
+      display: none;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .logo {
+      width: 70%;
+  }
 }
   
  

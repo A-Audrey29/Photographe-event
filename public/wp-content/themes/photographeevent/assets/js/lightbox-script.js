@@ -1,4 +1,38 @@
+// Sélectionner la lightbox et le bouton de fermeture
+var lightboxModal = document.querySelector('.lightbox');
+var btnCloseLightbox = document.querySelector('.lightbox-close');
+
+// Fonction pour ouvrir la lightbox
+// function openLightbox() {
+//   lightboxModal.style.display = 'block';
+// }
+document.getElementById("icon-fullscreen").addEventListener("click", function() {
+  var modal = document.querySelector(".lightbox");
+  var selectedImage = this.src;
+  var modalImage = modal.querySelector(".lightbox-container img");
+
+
+  modalImage.src = selectedImage;
+  modal.style.display = "block";
+  modal.classList.add('active')
+});
+
+// Fonction pour fermer la lightbox
+function closeLightbox() {
+  lightboxModal.style.display = 'none';
+}
+
+// Ajouter un événement de clic au bouton de fermeture
+btnCloseLightbox.addEventListener('click', closeLightbox);
+
+
+
+
+
 // Get the lightbox modal
+
+
+
 // var lightboxModal = document.querySelector('.lightbox');
 // var btnCloseLightbox = document.getElementById('lightbox-close');
 // var icFullScreen = document.getElementById('icon-fullscreen');
@@ -261,25 +295,26 @@
 
 
 // Get the lightbox modal
-var lightboxModal = document.querySelector('.lightbox');
-var btnCloseLightbox = document.querySelector('lightbox-close');
-var icFullScreen = document.getElementById('icon-fullscreen');
+// var lightboxModal = document.querySelector('.lightbox');
+// var btnCloseLightbox = document.querySelector('lightbox-close');
+// var icFullScreen = document.getElementById('icon-fullscreen');
 
-// When the user clicks on the close button, hide the lightbox modal
-btnCloseLightbox.onclick = function() {
-    lightboxModal.style.display = "none";
-}
+// // When the user clicks on the close button, hide the lightbox modal
+// if (btnCloseLightbox){
+// btnCloseLightbox.onclick = function() {
+//     lightboxModal.style.display = "none";
+// }}
 
-// When the user clicks on the fullscreen icon, display the enlarged image
-icFullScreen.onclick = function() {
-    //image à récuperer . dans apparence.php et ds single.pgp
-    var image = document.getElementById('galerie-img');
-    var imageSrc = image.getAttribute('src');
-    var img = '<img src="' + imageSrc + '" alt="Image agrandie">';
-    document.querySelector('.lightbox-img').innerHTML = img;
-    lightboxModal.style.display = 'block';
+// // When the user clicks on the fullscreen icon, display the enlarged image
+// icFullScreen.onclick = function() {
+//     //image à récuperer . dans apparence.php et ds single.pgp
+//     var image = document.getElementById('img-fullscreen');
+//     var imageSrc = image.getAttribute('src');
+//     var img = '<img src="' + imageSrc + '" alt="Image agrandie">';
+//     document.querySelector('.lightbox-img').innerHTML = img;
+//     lightboxModal.style.display = 'block';
     
-}
+//}
 
 // When the user clicks anywhere outside of the lightbox modal, close it
 // window.onclick = function(event) {

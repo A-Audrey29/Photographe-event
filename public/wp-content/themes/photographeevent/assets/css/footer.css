@@ -1,18 +1,20 @@
 .footer_nav {
     list-style: none;
-    padding: 0 10%;
+    padding: 8px 10%;
+    border-top: 1px solid;
 
     display: flex;
     justify-content: space-evenly;
 }
 
-@media all and (max-width: 480px){
+@media all and (max-width: 680px){
     .footer_nav {
         flex-direction: column;
         align-items: center;
+        padding-top: 44px;
     }
 
-    .menu-item{
+   .footer_nav .menu-item{
         padding-left: 0;
         padding-bottom: 24px;
     }

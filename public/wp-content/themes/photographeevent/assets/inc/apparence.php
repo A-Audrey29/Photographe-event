@@ -18,7 +18,7 @@ add_action('customize_register', function (WP_Customize_Manager $manager) {
 
 // fonction pour afficher les photos page d'accueil et "vous aimeriez aussi" de la single
 
-function affichageGalerie()
+function galeriePhotos()
 {
     if (have_posts()) :
         while (have_posts()) :
@@ -69,5 +69,5 @@ function affichageGalerie()
     endif;
 }
 // Utilisation de la fonction pour afficher les articles
-affichageGalerie();
+galeriePhotos();
 ?>

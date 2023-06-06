@@ -17,7 +17,7 @@
             'post_type' => 'photo',
             'showposts' => 1,
             'orderby' => 'rand',
-            'terms' => 'paysage',
+            // 'terms' => 'paysage',
         )
     ); ?>
     <?php if (have_posts()) :
@@ -28,10 +28,29 @@
                                                                                             endif; ?>
 </div>
 
-
 <!-- galerie -->
 
 <section class="galerie">
+
+
+    <!-- filtres -->
+
+    <div class="filtres-container">
+
+        <div class="filtres">
+
+        </div>
+
+        <div class="tri">
+
+
+        </div>
+
+
+    </div>
+
+    <!-- affichage des images  -->
+
     <div class="galerie-container">
         <?php $galerie = query_posts(
             array(
@@ -43,7 +62,7 @@
             )
         );
 
-        affichageGalerie($galerie, false);
+        galeriePhotos($galerie, false);
         ?>
 
     </div>

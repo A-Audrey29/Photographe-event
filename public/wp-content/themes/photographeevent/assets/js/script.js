@@ -227,23 +227,31 @@ function toggleMenu () {
 
 
 // Sélectionner la lightbox et le bouton de fermeture
-var lightboxModal = document.querySelector('.lightbox');
-var btnCloseLightbox = document.querySelector('.lightbox-close');
+// var lightboxModal = document.querySelector('.lightbox');
+// var btnCloseLightbox = document.querySelector('.lightbox-close');
 
-// Fonction pour ouvrir la lightbox
-function openLightbox() {
-  lightboxModal.style.display = 'block';
-}
+// // Fonction pour ouvrir la lightbox
+// // function openLightbox() {
+// //   lightboxModal.style.display = 'block';
+// // }
+// document.getElementById("icon-fullscreen").addEventListener("click", function() {
+//   var modal = document.querySelector(".lightbox");
+//   var selectedImage = this.src;
+//   var modalImage = modal.querySelector(".lightbox-container img");
 
-// Fonction pour fermer la lightbox
-function closeLightbox() {
-  lightboxModal.style.display = 'none';
-}
+//   modalImage.src = selectedImage;
+//   modal.style.display = "block";
+// });
 
-// Ajouter un événement de clic au bouton de fermeture
-btnCloseLightbox.addEventListener('click', closeLightbox);
+// // Fonction pour fermer la lightbox
+// function closeLightbox() {
+//   lightboxModal.style.display = 'none';
+// }
 
-// Utilisation de l'icône en plein écran (optionnel)
-var icFullScreen = document.getElementById('icon-fullscreen');
-icFullScreen.addEventListener('click', openLightbox);
+// // Ajouter un événement de clic au bouton de fermeture
+// btnCloseLightbox.addEventListener('click', closeLightbox);
+
+// // Utilisation de l'icône en plein écran (optionnel)
+// // var icFullScreen = document.getElementById('icon-fullscreen');
+// // icFullScreen.addEventListener('click', openLightbox);
 

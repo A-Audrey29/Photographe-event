@@ -45,7 +45,7 @@ function add_last_nav_item($items, $args)
 {
     // Vérifiez si le menu correspond au menu principal
     if ($args->theme_location == 'footer') {
-        $items .= '<li>Tous droits réservés</li>';
+        $items .= '<li class="menu-item">TOUS DROITS RÉSERVÉS</li>';
     }
     return $items;
 }
@@ -91,6 +91,11 @@ $terms = get_terms(array(
     'taxonomy'   => 'post_tag',
     'hide_empty' => false,
 ));
+
+
+
+
+
 
 // ajout du prtefolio dans ACF
 // function photographeevent_register_post_types()
