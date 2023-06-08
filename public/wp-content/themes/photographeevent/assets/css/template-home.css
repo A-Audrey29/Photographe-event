@@ -62,7 +62,6 @@
 }
 
 
-
     /* section galerie photos */
 
 .galerie {
@@ -86,18 +85,23 @@
 
 @media all and (max-width: 540px){
 
-.galerie-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    .galerie-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.galerie-container img, .galerie-img{
-    width: 75vw;
-    min-height: 75vw;
-    padding-top: 18px;
-    padding-right: 0;
-}
+     .galerie-img #img-fullscreen{
+        /* .img-fullscreen { */
+        width: 75vw;
+        min-height: 75vw;
+        padding-top: 18px;
+        padding-right: 0;
+    }
+
+    .icon-fullscreen {
+     top: 41px;
+    }
 }
 
     /* galerie icones et txt  */
