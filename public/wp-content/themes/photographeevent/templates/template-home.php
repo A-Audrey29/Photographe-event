@@ -70,7 +70,7 @@
     </div>
 
     <div class="galerie-btn-container">
-        <input class="galerie-btn" type="button" value="Charger plus">
+        <button class="galerie-btn"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/appareil_photo.png" alt="icon d'un appareil photo"/>Charger plus</button>
     </div>
 </section>
 

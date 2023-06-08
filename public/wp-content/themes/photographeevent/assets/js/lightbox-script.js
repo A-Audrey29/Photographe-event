@@ -6,7 +6,7 @@ let btnCloseLightbox = document.querySelector('.lightbox-close');
 // function openLightbox() {
 //   lightboxModal.style.display = 'block';
 // }
-const iconFullscreenList = document.querySelectorAll(".icon-fullscreen")
+let iconFullscreenList = document.querySelectorAll(".icon-fullscreen")
 iconFullscreenList.forEach(function(iconFullscreen){
 iconFullscreen.addEventListener("click", function(e) {
     let modal = document.querySelector(".lightbox")
@@ -19,11 +19,6 @@ iconFullscreen.addEventListener("click", function(e) {
     modal.classList.add('active')
 })
 });
-
-// Fonction pour fermer la lightbox
-function closeLightbox() {
-  lightboxModal.style.display = 'none'
-}
 
 // Ajouter un événement de clic au bouton de fermeture
 btnCloseLightbox.addEventListener('click', closeLightbox);

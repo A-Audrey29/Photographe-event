@@ -125,7 +125,10 @@ $terms = get_terms(array(
 // }
 // add_action('init', 'photographeevent_register_post_types'); // Le hook init lance la fonction
 
-function galerie_filtres($cat_id = 9, $date = 'DESC', $format = 'paysage')
+
+// requete ajax pour les filtres
+
+function galerie_filtres($cat_id = 9, $format = 'paysage', $date = 'DESC')
 {
     $args = array(
         'post_type' => 'photo',
@@ -138,5 +141,5 @@ function galerie_filtres($cat_id = 9, $date = 'DESC', $format = 'paysage')
 
     );
     $query = new WP_Query($args);
-    var_dump($query);
+    // var_dump($query);
 }
