@@ -67,18 +67,19 @@
     align-items: center;
 }
 
-.lightbox-container > img{
+.lightbox-container img{
     max-width: 90% !important;
     max-height: 90%;
+    margin: auto;
 }
 
 .lightbox-close {
     background: none;
     border: none;
-    width: 1.7em;
-    height: 1.7em;
-    margin-left: 96%;
-    padding-top: 2%;
+    width: 1.8em;
+    height: 1.8em;
+    margin-left: 94%;
+    padding-top: 8%;
     cursor: pointer;
 }
 

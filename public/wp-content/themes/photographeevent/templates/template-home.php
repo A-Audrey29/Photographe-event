@@ -35,6 +35,8 @@
 
     <!-- filtres -->
 
+    <?php galerie_filtres(); ?>
+
     <div class="filtres-container">
 
         <div class="filtres">

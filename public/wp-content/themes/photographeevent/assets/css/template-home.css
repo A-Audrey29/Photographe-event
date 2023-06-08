@@ -110,8 +110,10 @@
     position: relative;
 }
 
-.galerie-img #icon-fullscreen, .photo-container #icon-fullscreen {
+.galerie-img .icon-fullscreen, .photo-container .icon-fullscreen {
     position: absolute;
+    width: 35px;
+    height: 35px;
     top: 25px;
     right: 25px;
     transform: translate(50%, -50%);
@@ -119,25 +121,21 @@
     transition: opacity 0.3s ease-in-out;
 }
         
-.galerie-img #icon-oeil #icon-fullscreen, .photo-container #icon-oeil #icon-fullscreen {
+.galerie-img .icon-oeil .icon-fullscreen, .photo-container .icon-oeil .icon-fullscreen {
     display: block;
     margin: 0 auto;
 }
 
-.galerie-img #icon-oeil, .photo-container #icon-oeil {
+.galerie-img .icon-oeil, .photo-container .icon-oeil {
     position: absolute;
+    width: 35px;
+    height: 35px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
-
-#icon-oeil, #icon-fullscreen {
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-}        
 
 .galerie-img-info {
     position: relative;
@@ -156,13 +154,13 @@
     transition: opacity 0.3s ease-in-out;
 }
   
-.galerie-img:hover #icon-oeil, .galerie-img:hover #icon-fullscreen, 
-.photo-container:hover #icon-oeil, .photo-container:hover #icon-fullscreen,
+.galerie-img:hover .icon-oeil, .galerie-img:hover .icon-fullscreen, 
+.photo-container:hover .icon-oeil, .photo-container:hover .icon-fullscreen,
 .galerie-img-info:hover p {
     opacity: 1;
 }
     
-/* #icon-oeil:hover {
+/* .icon-oeil:hover {
     opacity: 1;
 } */
 

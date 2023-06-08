@@ -124,3 +124,19 @@ $terms = get_terms(array(
 //     register_post_type('portfolio', $args);
 // }
 // add_action('init', 'photographeevent_register_post_types'); // Le hook init lance la fonction
+
+function galerie_filtres($cat_id = 9, $date = 'DESC', $format = 'paysage')
+{
+    $args = array(
+        'post_type' => 'photo',
+        // 'post__not_in' => array(get_the_ID()),
+        'cat' => $cat_id,
+        'posts_per_page' => 12,
+        'order' => $date,
+        'meta_key' => 'format',
+        'meta_value' => $format
+
+    );
+    $query = new WP_Query($args);
+    var_dump($query);
+}
