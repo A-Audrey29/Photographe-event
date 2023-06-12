@@ -23,19 +23,23 @@
 
 .hero-container > img {
     width: 100%;
-    max-height: 966px;
+    max-height: 100vh;
 }
 
 @media all and (max-width: 1000px) {
     .nom-site {
       font-size: 4.5em;
-}
+    }
+
+.hero-container > img {
+    max-height: 90vh;
+        }
 }
 
 @media all and (max-width: 800px) {
     .nom-site {
         font-size: 3.5em;
-}
+    }
 }
 
 @media all and (max-width: 620px) {
@@ -55,10 +59,25 @@
 
 .filtres-container {
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 4.6em;
 }
 
 .filtres {
+    width: 38vw;
+
     display: flex;
+    justify-content: space-between;
+}
+
+.colonne {
+display: flex;
+flex-direction: column;
+}
+
+#format-select, .category-dropdown, #date-select {
+    width: 17em;
+    /* height: 170px; */
 }
 
 

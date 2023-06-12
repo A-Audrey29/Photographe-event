@@ -34,6 +34,7 @@
 
     opacity: 1;
     visibility: visible;
+    /* transition: transform 0.6s ease-in-out; */
 
 }
 /* 
@@ -155,3 +156,9 @@
     transform: scale(.1);
     transition: transform 330ms ease-in-out;
 }    */
+
+
+
+.site__navigation__next{
+    position: relative;
+}

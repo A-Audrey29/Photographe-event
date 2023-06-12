@@ -36,6 +36,8 @@ function galeriePhotos()
             // Récupérer le titre de l'article
             $article_title = get_the_title();
 ?>
+
+<!-- faire un callback pour afficher la lightbox ds single-photo ? -->
             <div class="galerie-photo">
                 <div class="galerie-img">
                     <img id="img-fullscreen" src="<?php echo $thumbnail_url[0]; ?>" alt="<?php echo $thumbnail_alt; ?>" title="<?php echo $article_title; ?>">

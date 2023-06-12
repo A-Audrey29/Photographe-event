@@ -6,16 +6,20 @@ let btnCloseLightbox = document.querySelector('.lightbox-close');
 // function openLightbox() {
 //   lightboxModal.style.display = 'block';
 // }
-document.querySelector(".icon-fullscreen").addEventListener("click", function(e) {
-    let modal = document.querySelector(".lightbox");
-    let selectedImage = e.target.closest('.galerie-img').querySelector('#img-fullscreen');
-    let modalImage = modal.querySelector(".lightbox-container img");
 
-    modalImage.src = selectedImage.src;
-    modalImage.alt = selectedImage.alt;
-    modal.style.display = "block"
-    modal.classList.add('active')
-});
+document.querySelectorAll(".icon-fullscreen").forEach((icon) => {
+    icon.addEventListener("click", function(e) {
+        let modal = document.querySelector(".lightbox");
+        let selectedImage = e.target.closest('.galerie-img').querySelector('#img-fullscreen');
+        let modalImage = modal.querySelector(".lightbox-container img");
+    
+        modalImage.src = selectedImage.src;
+        modalImage.alt = selectedImage.alt;
+        modal.style.display = "block"
+        modal.classList.add('active')
+    });
+})
+
 
 // Fonction pour fermer la lightbox
 function closeLightbox() {
@@ -24,5 +28,7 @@ function closeLightbox() {
 
 // Ajouter un événement de clic au bouton de fermeture
 btnCloseLightbox.addEventListener('click', closeLightbox);
+
+
 
 

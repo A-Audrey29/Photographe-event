@@ -53,20 +53,6 @@ add_filter('wp_nav_menu_items', 'add_last_nav_item', 10, 2);
 
 
 
-// intégration mention tx " tous droits réservé "
-
-// function ajouter_texte_menu_footer($items, $args)
-// {
-//     if ($args->theme_location == 'Bas de page') {
-//         $texte = '<li>Tous droits réservés</li>';
-//         $items .= $texte;
-//     }
-//     return $items;
-// }
-// add_filter('wp_nav_menu_items', 'ajouter_texte_menu_footer', 10, 2);
-
-
-
 // gestion des class : rajout de nav-item
 function photographeevent_menu_class($classes)
 {
@@ -96,36 +82,6 @@ $terms = get_terms(array(
 
 
 
-
-// ajout du prtefolio dans ACF
-// function photographeevent_register_post_types()
-// {
-
-//     // CPT Portfolio
-//     $labels = array(
-//         'name' => 'Portfolio',
-//         'all_items' => 'Toutes les photos',  // affiché dans le sous menu
-//         'singular_name' => 'Photo',
-//         'add_new_item' => 'Ajouter une photo',
-//         'edit_item' => 'Modifier la photo',
-//         'menu_name' => 'Portfolio'
-//     );
-
-//     $args = array(
-//         'labels' => $labels,
-//         'public' => true,
-//         'show_in_rest' => true,
-//         'has_archive' => true,
-//         'supports' => array('title', 'editor', 'thumbnail'),
-//         'menu_position' => 5,
-//         'menu_icon' => 'dashicons-admin-customizer',
-//     );
-
-//     register_post_type('portfolio', $args);
-// }
-// add_action('init', 'photographeevent_register_post_types'); // Le hook init lance la fonction
-
-
 // requete ajax pour les filtres
 
 function galerie_filtres($cat_id = 9, $format = 'paysage', $date = 'DESC')
@@ -137,9 +93,67 @@ function galerie_filtres($cat_id = 9, $format = 'paysage', $date = 'DESC')
         'posts_per_page' => 12,
         'order' => $date,
         'meta_key' => 'format',
-        'meta_value' => $format
+        'meta_value' => $format,
+        'field' => 'slug'
 
     );
     $query = new WP_Query($args);
     // var_dump($query);
+    // $response = '';
+    // if ($query->have_posts()) {
+    //     while ($query->have_posts()) : $query->the_post();
+    //         $response .= get_template_part('parts/card', 'publication');
+    //     endwhile;
+    // } else {
+    //     $response = '';
+    // }
+    // wp_reset_postdata();
+    // echo $response;
+    // exit;
 }
+
+if (isset($_POST['action']) && $_POST['action'] === 'filtrer_par_categorie') {
+    // Récupérer la valeur de cat_id envoyée depuis la requête Ajax
+    $catId = $_POST['cat_id'];
+
+    // Appeler la fonction galerie_filtres avec la catégorie filtrée
+    echo galerie_filtres($catId);
+
+    // Terminer le script PHP
+    exit();
+}
+
+// Hook pour connecter la fonction à la requête Ajax
+add_action('wp_ajax_filtrer_photos_par_categorie', 'galerie_filtres');
+add_action('wp_ajax_nopriv_filtrer_photos_par_categorie', 'galerie_filtres');
+
+
+
+
+// requête pagination
+
+function weichie_load_more()
+{
+    $ajaxposts = new WP_Query([
+        'post_type' => 'photo',
+        'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'paged' => $_POST['paged'],
+    ]);
+
+    $response = '';
+
+    if ($ajaxposts->have_posts()) {
+        while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
+            $response .= get_template_part('parts/card', 'publication');
+        endwhile;
+    } else {
+        $response = '';
+    }
+
+    echo $response;
+    exit;
+}
+add_action('wp_ajax_weichie_load_more', 'weichie_load_more');
+add_action('wp_ajax_nopriv_weichie_load_more', 'weichie_load_more');
