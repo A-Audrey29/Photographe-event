@@ -36,6 +36,10 @@ function toggleMenu () {
   toggleMenu()
 
 
+
+
+
+
 // single-photo : slide au hover des flèches 
 
 const slide = document.querySelector(".lightbox-image")

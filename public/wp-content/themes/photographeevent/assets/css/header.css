@@ -65,7 +65,7 @@
   height: 115vw;
   width: 78vw;
   padding-top: 40px;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .navbar-burger {

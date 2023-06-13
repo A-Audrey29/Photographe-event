@@ -40,7 +40,7 @@ function galeriePhotos()
 <!-- faire un callback pour afficher la lightbox ds single-photo ? -->
             <div class="galerie-photo">
                 <div class="galerie-img">
-                    <img id="img-fullscreen" src="<?php echo $thumbnail_url[0]; ?>" alt="<?php echo $thumbnail_alt; ?>" title="<?php echo $article_title; ?>">
+                    <img id="img-fullscreen" class="img-hover" src="<?php echo $thumbnail_url[0]; ?>" alt="<?php echo $thumbnail_alt; ?>" title="<?php echo $article_title; ?>">
                     <div class="galerie-hover-icon">
                         <a href="<?php echo get_post_permalink(); ?>">
                             <img class="icon-oeil" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_oeil.png" alt="Icône en forme d'oeil" />

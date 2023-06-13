@@ -21,7 +21,7 @@
                     // 'container' => false,
                     'menu_class' => 'navbar'
                 ]); ?>
-                <li><a href="#" id="myBtn" class="menu-item" role="button" data-toggle="modal">CONTACT</a></li>
+                <li><a href="#" id="myBtn" class="menu-item modal-js" role="button" data-toggle="modal">CONTACT</a></li>
             </div>
         </div>
 
@@ -41,7 +41,7 @@
                     // 'container' => false,
                     'menu_class' => 'navbar-burger'
                 ]); ?>
-                <li class="menu-item nav-item"><a href="#" id="myBtn" role="button" data-toggle="modal">CONTACT</a></li>
+                <li class="menu-item nav-item"><a href="#" id="myBtn" class="modal-js" role="button" data-toggle="modal">CONTACT</a></li>
             </ul>
 
     </header>

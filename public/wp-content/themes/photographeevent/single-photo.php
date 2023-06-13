@@ -111,7 +111,9 @@ endwhile; // End of the loop.
 </div>
 
 <div class="aimez-aussi-btn-conatainer">
-	<button class="btn-CTA aimez-aussi-btn">Toutes les photos</button>
+	<a href="<?php echo home_url('/'); ?>">
+		<button class="btn-CTA aimez-aussi-btn">Toutes les photos</button>
+	</a>
 </div>
 
 <?php get_footer(); ?>

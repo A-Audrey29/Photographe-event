@@ -1,26 +1,36 @@
       // FORMULAIRE DE CONTACT
 
     
-var modal = document.getElementById('myModal');
+      let modal = document.getElementById('myModal')
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-    var input = document.querySelector('#wpforms-61-field_3');
-    //ajout de la référence photo
-    var referenceText = document.querySelector('#reference').textContent;
-    input.value = referenceText
-}
-
+      if (modal) {
+        let btn = document.querySelectorAll('.modal-js')
+      
+        btn.forEach(function(item) {
+          item.addEventListener('click', () => {
+            modal.style.display = 'block'
+            let input = document.querySelector('#wpforms-61-field_3')
+            let referenceText = document.querySelector('#reference').textContent
+            input.value = referenceText
+          })
+        })
+      }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+        modal.style.display = 'none'
     }
 }
+
+  // Si navbar-link est ouvert alors met en display none
+// const navbarLinks = document.querySelector('.navbar-links');
+
+// itemContact.addEventListener('click', function() {
+//   if (menu && menu.classList.contains('open')) {
+//     menu.style.display = 'none';
+//   }
+// })
+
 
 
 
@@ -28,7 +38,7 @@ window.onclick = function(event) {
 
 
 // // Get the modals
-// var modal = document.getElementById('myModal');
+// var modal = document.getElementById('myModal')
 // var lightboxModal = document.querySelector('.lightbox');
 
 // // Get the button that opens the modal

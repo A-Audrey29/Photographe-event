@@ -140,34 +140,47 @@
 //   });
 // });
 
-function ajaxRequest(chargerPlus) {
+function ajaxRequest(filtreRésultat) {
+  // Sélectionner l'élément avec l'id "categories" et récupérer la valeur de l'option sélectionnée
   const cat = $('#categories');
   const categorieSelection = cat.find('option:selected').val();
+
+  // Sélectionner l'élément avec l'id "format" et récupérer la valeur de l'option sélectionnée
   const format = $('#format');
   const formatSelection = format.find('option:selected').val();
+
+  // Sélectionner l'élément avec l'id "ordre" et récupérer la valeur de l'option sélectionnée
   const ordre = $('#ordre').find('option:selected').val();
+
+  // Effectuer une requête AJAX
   $.ajax({
-    type: 'POST',
-    url: ajaxurl,
-    dataType: 'html',
+    type: 'POST', // Utiliser la méthode POST pour envoyer les données
+    url: ajaxurl, // L'URL de l'endpoint AJAX
+    dataType: 'html', // Spécifier le type de données attendu dans la réponse (HTML)
     data: {
-      action: 'filtrer_par_categorie', // Use the name of the AJAX action that you want to call
-      cat_id: categorieSelection, // Send the category ID as a parameter
-      format: formatSelection,
-      order: ordre
+      action: 'filtrer_par_categorie', // Utiliser le nom de l'action AJAX que vous souhaitez appeler
+      cat_id: categorieSelection, // Envoyer l'ID de catégorie en tant que paramètre
+      format: formatSelection, // Envoyer la sélection de format en tant que paramètre
+      order: ordre // Envoyer l'ordre en tant que paramètre
     },
     success: function(resultat) {
-      if (chargerPlus) {
+      // Callback en cas de succès de la requête AJAX
+
+      if (filtreRésultat) {
+        // Si "filtreRésultat" est vrai, ajouter le résultat à la fin de l'élément avec la classe "galerie-container"
         $('.galerie-container').append(resultat);
       } else {
+        // Sinon, remplacer le contenu de l'élément avec la classe "galerie-container" par le résultat
         $('.galerie-container').html(resultat);
       }
     },
     error: function(result) {
-      console.warn(result);
+      // Callback en cas d'erreur lors de la requête AJAX
+      console.warn(result); // Afficher l'erreur dans la console du navigateur
     }
   });
 }
+
 
 
 
