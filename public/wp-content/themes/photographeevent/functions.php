@@ -79,6 +79,24 @@ $terms = get_terms(array(
 ));
 
 
+// fonction pour afficher les photos page d'accueil et "vous aimeriez aussi" de la single
+
+function galeriePhotos()
+{
+    if (have_posts()) :
+        while (have_posts()) :
+            the_post();
+
+            // Récupérer l'image mise en avant de l'article
+            add_image_size('custom-size', 500, 500, true);
+
+            get_template_part('template-parts/content', 'image');
+
+        endwhile;
+    endif;
+}
+// Utilisation de la fonction pour afficher les articles
+galeriePhotos();
 
 
 
@@ -90,7 +108,7 @@ function galerie_filtres($cat_id = 9, $format = 'paysage', $date = 'DESC')
         'post_type' => 'photo',
         // 'post__not_in' => array(get_the_ID()),
         'cat' => $cat_id,
-        'posts_per_page' => 12,
+        'posts_per_page' => 2,
         'order' => $date,
         'meta_key' => 'format',
         'meta_value' => $format,
@@ -99,17 +117,7 @@ function galerie_filtres($cat_id = 9, $format = 'paysage', $date = 'DESC')
     );
     $query = new WP_Query($args);
     // var_dump($query);
-    // $response = '';
-    // if ($query->have_posts()) {
-    //     while ($query->have_posts()) : $query->the_post();
-    //         $response .= get_template_part('parts/card', 'publication');
-    //     endwhile;
-    // } else {
-    //     $response = '';
-    // }
-    // wp_reset_postdata();
-    // echo $response;
-    // exit;
+
 }
 
 if (isset($_POST['action']) && $_POST['action'] === 'filtrer_par_categorie') {
@@ -134,22 +142,29 @@ add_action('wp_ajax_nopriv_filtrer_photos_par_categorie', 'galerie_filtres');
 
 function weichie_load_more()
 {
+    $paged = $_POST['paged']; // Récupère la valeur de 'paged' depuis la requête Ajax
+
+    // Ajouter un code de débogage pour afficher la valeur de 'paged'
+    // error_log('$_POST["paged"] value: ' . $paged);
+
     $ajaxposts = new WP_Query([
         'post_type' => 'photo',
-        'posts_per_page' => 12,
-        'orderby' => 'date',
+        'posts_per_page' => 2,
+        'paged' => $paged,
         'order' => 'DESC',
-        'paged' => $_POST['paged'],
+        'orderby' => ['date' => 'DESC', 'ID' => 'ASC']
     ]);
 
     $response = '';
+    // var_dump($ajaxposts->have_posts());
 
     if ($ajaxposts->have_posts()) {
         while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
-            $response .= get_template_part('parts/card', 'publication');
+            $response .=  get_template_part('template-parts/content', 'image');
         endwhile;
     } else {
         $response = '';
+        // var_dump($response);
     }
 
     echo $response;

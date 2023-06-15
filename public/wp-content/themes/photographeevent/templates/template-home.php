@@ -138,8 +138,8 @@
                 'post_type' => 'photo',
                 'orderby' => 'date',
                 'order' => 'DESC',
-                'posts_per_page' => 12,
-                'paged' => 1
+                'posts_per_page' => 2,
+                'paged' => 1,
             )
         );
 
@@ -148,31 +148,11 @@
 
     </div>
 
+
     <!-- pagination -->
 
-    <?php
-    $publications = new WP_Query([
-        'post_type' => 'photos',
-        'posts_per_page' => 12,
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'paged' => 1,
-    ]);
-    ?>
-
-    <?php if ($publications->have_posts()) : ?>
-        <ul class="publication-list">
-            <?php
-            while ($publications->have_posts()) : $publications->the_post();
-                get_template_part('parts/card', 'photos');
-            endwhile;
-            ?>
-        </ul>
-    <?php endif; ?>
-    <?php wp_reset_postdata(); ?>
-
     <div class="galerie-btn-container">
-        <a id="charger-plus" href="#!"><button class="galerie-btn">Charger plus</button></a>
+        <a id="load-more" data-current-index="1" href="#!"><button class="galerie-btn">Charger plus<img class="galerie-btn-img" src="wp-content/themes/photographeevent/assets/images/appareil_photo.png" alt="Icon d'un appareil photo"></button></a>
     </div>
 </section>
 

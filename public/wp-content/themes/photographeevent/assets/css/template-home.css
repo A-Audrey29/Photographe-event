@@ -1,11 +1,4 @@
-.hero-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 32px;
-}
-
-    /* Titre du site */
+   /* Titre du site */
 
 .nom-site {
     font-family: 'space-mono-bolditalic';
@@ -21,20 +14,22 @@
 
 /* hero background image */
 
+.hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
 .hero-container > img {
     width: 100%;
-    max-height: 100vh;
+    max-height: 50vh;
 }
 
 @media all and (max-width: 1000px) {
     .nom-site {
       font-size: 4.5em;
     }
-
-.hero-container > img {
-    max-height: 90vh;
-        }
-}
 
 @media all and (max-width: 800px) {
     .nom-site {
@@ -53,6 +48,7 @@
         font-size: 1.6em;
 }
 }
+}
 
 
 /* section des filtres */
@@ -61,6 +57,8 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 4.6em;
+    margin-right: 3%;
+
 }
 
 .filtres {
@@ -71,20 +69,24 @@
 }
 
 .colonne {
-display: flex;
-flex-direction: column;
+    font-family: 'Poppins';
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
 }
 
 #format-select, .category-dropdown, #date-select {
     width: 17em;
-    /* height: 170px; */
+    font-family: 'Poppins';
+    font-size: 0.8em;
 }
 
 
     /* section galerie photos */
 
 .galerie-photo {
-    height: 41vw;
+    /* width: 37vw; */
+    height: 39.5vw;
 }
 
 .galerie {
@@ -95,17 +97,20 @@ flex-direction: column;
 }
 
 .galerie-container {
-    columns: 2;
+    break-inside: avoid; /* Éviter les sauts de colonne à l'intérieur des colonnes */
+
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: stretch;
 }
 
-.galerie-img img{
-    width: 39vw;
-    height: 39vw;
-    position: relative;
 
-    max-height: 567px;
-    padding-right: 1%;
-    z-index: 1;
+.galerie-img img{
+    width: 37vw;
+    height: 37vw;
+    position: relative;
+    max-height: 550px;
+    max-width: 550px;
 }
 
 .img-hover::before {
@@ -216,8 +221,8 @@ flex-direction: column;
 .galerie-btn-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 47px;
-    margin-top: -20px;
+    margin-bottom: 15px;
+    margin-top: 47px;
 }
 
 .galerie-btn {
