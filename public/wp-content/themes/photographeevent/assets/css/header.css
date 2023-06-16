@@ -136,7 +136,24 @@
     opacity: 1;
     transform: translateY(0);
   }
+} 
+
+/* Animation à la fermeture du menu burger */
+.close_nav.closing {
+  transform: translateY(-100%) 1s;
 }
+
+@keyframes slide-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: O;
+    transform: translateY(10px);
+  }
+} 
+
 
 @media all and (max-width: 770px) {
   .navbar .menu-item {

@@ -1,4 +1,4 @@
-<div id="myModal" class="modal">
+<div id="myModal" class="modal show">
     <div class="modal-content">
         <img class="img-contact" src="<?php echo get_template_directory_uri(); ?>'/assets/images/contact.png'" alt="contact">
 

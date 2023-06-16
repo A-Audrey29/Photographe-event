@@ -54,18 +54,20 @@
 /* section des filtres */
 
 .filtres-container {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 4.6em;
     margin-right: 3%;
 
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .filtres {
-    width: 38vw;
+    width: 37vw;
 
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .colonne {
@@ -75,7 +77,7 @@
     flex-direction: column;
 }
 
-#format-select, .category-dropdown, #date-select {
+#format-select, #category-select, #date-select {
     width: 17em;
     font-family: 'Poppins';
     font-size: 0.8em;
@@ -105,6 +107,18 @@
 }
 
 
+/* #img-fullscreen:hover  {
+    position: relative;
+    z-index: 2;
+}
+@media (hover: hover) {
+    #img-fullscreen:hover {
+      
+        position: relative;
+        z-index: -1; 
+    }
+  } */
+
 .galerie-img img{
     width: 37vw;
     height: 37vw;
@@ -113,24 +127,95 @@
     max-width: 550px;
 }
 
-.img-hover::before {
-    /* background-color: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); */
-    content: "";
-    position: relative;
-    background-color: black;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
-
+.galerie-hover-icon{
+    position: absolute;
+  width: 95%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.92) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: ease-in-out 0.2s;
+  opacity: 0;
+    /* background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
+    width: 37vw;
+    height: 37vw; */
 }
 
-.img-hover:hover::before {  
+.galerie-img:hover .galerie-hover-icon{
     opacity: 1;
-    z-index: 5;
-        /* background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); */
-      
-    }
+}
+
+    /* galerie icones et txt  */
+
+.galerie-img, .photo-container {
+    position: relative;
+}
+
+.galerie-hover-icon .icon-fullscreen, .photo-container .icon-fullscreen {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 25px;
+    right: 28px;
+    transform: translate(50%, -50%);
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+    
+.galerie-img .icon-oeil .icon-fullscreen, .photo-container .icon-oeil .icon-fullscreen {
+    display: block;
+    margin: 0 auto;
+}
+
+.galerie-img .icon-oeil, .photo-container .icon-oeil {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top:51%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.galerie-img-info {
+    position: relative;
+    top: 23px;
+    right: 2px;
+    color: white;
+    padding: 0 1em;
+    
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.galerie-img-info p {
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 4;
+}
+
+.galerie-cat > a {
+    color: white !important;
+}
+
+.galerie-img:hover .icon-oeil, .galerie-img:hover .icon-fullscreen, 
+.photo-container:hover .icon-oeil, .photo-container:hover .icon-fullscreen,
+.galerie-img:hover .galerie-img-info>p {
+    opacity: 1;
+}
 
 
 @media all and (max-width: 540px){
@@ -149,72 +234,13 @@
         /* .img-fullscreen { */
         width: 75vw;
         min-height: 75vw;
-        padding-top: 18px;
-        padding-right: 0;
+        margin: auto;
     }
 
     .icon-fullscreen {
      top: 41px;
     }
 }
-
-    /* galerie icones et txt  */
-
-.galerie-img, .photo-container {
-    position: relative;
-}
-
-.galerie-img .icon-fullscreen, .photo-container .icon-fullscreen {
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    top: 25px;
-    right: 25px;
-    transform: translate(50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-    
-.galerie-img .icon-oeil .icon-fullscreen, .photo-container .icon-oeil .icon-fullscreen {
-    display: block;
-    margin: 0 auto;
-}
-
-.galerie-img .icon-oeil, .photo-container .icon-oeil {
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    top: 47%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.galerie-img-info {
-    position: relative;
-    top: -3.5em;
-    color: white;
-    padding: 0 1em;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.galerie-img-info p {
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    z-index: 4;
-}
-
-.galerie-img:hover .icon-oeil, .galerie-img:hover .icon-fullscreen, 
-.photo-container:hover .icon-oeil, .photo-container:hover .icon-fullscreen,
-.galerie-img:hover .galerie-img-info>p {
-    opacity: 1;
-}
-
 
 /* bouton "charger plus" */
 

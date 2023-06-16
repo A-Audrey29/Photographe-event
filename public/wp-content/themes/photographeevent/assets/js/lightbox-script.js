@@ -3,9 +3,6 @@ let lightboxModal = document.querySelector('.lightbox');
 let btnCloseLightbox = document.querySelector('.lightbox-close');
 
 // Fonction pour ouvrir la lightbox
-// function openLightbox() {
-//   lightboxModal.style.display = 'block';
-// }
 
 document.querySelectorAll('.icon-fullscreen').forEach((icon) => {
     icon.addEventListener('click', function(e) {
@@ -70,6 +67,38 @@ document.addEventListener('DOMContentLoaded', function() {
     lightbox.setAttribute('data-current-index', 0);
 });
 
+// single-photo : slide au hover des flèches 
+
+const slide = document.querySelector(".lightbox-image")
+const previousSlide = document.querySelector(".lightbox-prev")
+const nextSlide = document.querySelector("lightbox-next")
+
+// Récupérer les éléments HTML pour ajouter un événement au survol
+let flecheGauche = document.querySelector('.fleche_gauche')
+let flecheDroite = document.querySelector('.fleche_droite')
+let previousImage = document.querySelector('.prev-photo')
+let nextImage = document.querySelector('.next-photo')
+
+if (nextImage && previousImage) {
+  nextImage.style.opacity = 0
+  previousImage.style.opacity = 0
+} 
+
+// Ajouter un événement au survol des éléments HTML
+navigationPhotos(flecheGauche, previousImage)
+navigationPhotos(flecheDroite, nextImage)
+
+function navigationPhotos(fleche, image) {
+  if (fleche) {
+    fleche.addEventListener('mouseover', function() {
+      image.style.opacity = '1'
+    })
+    fleche.addEventListener('mouseout', function() {
+      image.style.opacity = '0'
+    })
+  }
+}
+
 
 // document.addEventListener('DOMContentLoaded', function() {
 //     const lightbox = document.querySelector('.lightbox');
@@ -122,6 +151,33 @@ document.addEventListener('DOMContentLoaded', function() {
 //     }
 // })
 //   });
+
+
+
+
+ // Lorsque les flèches gauche et droite sont cliquées
+ lightbox.querySelector('.fleche-gauche').addEventListener('click', function(e) {
+    e.stopPropagation(); // Empêche la propagation de l'événement pour éviter la fermeture de la lightbox
+    // parseInt permet de recuperer une chaine de caractères en entier 
+    var currentIndex = parseInt(lightbox.getAttribute('data-current-index'));
+    var previousButton = buttonlightbox[currentIndex - 1];
+    if (previousButton) {
+      previousButton.click();
+      lightbox.setAttribute('data-current-index', currentIndex - 1);
+    }
+  });
+
+  lightbox.querySelector('.fleche-droite').addEventListener('click', function(e) {
+    e.stopPropagation(); // Empêche la propagation de l'événement pour éviter la fermeture de la lightbox
+
+    var currentIndex = parseInt(lightbox.getAttribute('data-current-index'));
+    var nextButton = buttonlightbox[currentIndex + 1];
+    if (nextButton) {
+      nextButton.click();
+      lightbox.setAttribute('data-current-index', currentIndex + 1);
+    }
+  });
+
 
   
 

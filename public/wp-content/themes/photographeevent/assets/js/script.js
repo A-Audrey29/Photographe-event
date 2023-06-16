@@ -25,19 +25,17 @@ menuBtn.addEventListener('click', function() {
 
 
 // fermeture du menu burger
+
+
 function toggleMenu () {  
     const navbar = document.querySelector('.main-navigation')
     const burger = document.querySelector('.menu-toggle')
     
     burger.addEventListener('click', () => {    
-      navbar.classList.toggle('open-nav')
+      navbar.classList.toggle('closing')
     })
   }
   toggleMenu()
-
-
-
-
 
 
 // single-photo : slide au hover des flèches 

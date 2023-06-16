@@ -76,37 +76,28 @@ endwhile; // End of the loop.
 
 </div>
 
-<div class="galerie">
+<div class="galerie background">
 
 	<h3 class="aimez-aussi-titre">VOUS AIMEREZ AUSSI</h3>
+	<div class="galerie-container">
+		<?php
+		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		$args = new WP_Query(array(
+			'post_type' => 'photo',
+			'post__not_in' => array(get_the_ID()),
+			'orderby' => 'date',
+			'order' => 'DESC',
+			'posts_per_page' => 2,
+			'paged' => $paged,
+		));
+
+		galeriePhotos($args, false);
+
+		?>
+	</div>
 
 	<div class="galerie-container">
 
-		<?php
-		$cat_id = get_the_category()[0]->term_id;
-		$args = array(
-			'post_type' => 'photo',
-			'post__not_in' => array(get_the_ID()),
-			'cat' => $cat_id,
-			'posts_per_page' => 2,
-		);
-		$query = new WP_Query($args);
-
-		while ($query->have_posts()) :
-			$query->the_post();
-			$link = get_permalink();
-			$title = get_the_title();
-			$date = get_the_date();
-
-			if (has_post_thumbnail()) : ?>
-				<div class="galerie-img">
-					<!-- <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" class="post-thumbnail" /> -->
-					<?php galeriePhotos($args, false); ?>
-				</div>
-			<?php endif;
-			the_content(); ?>
-		<?php endwhile;
-		?>
 	</div>
 </div>
 

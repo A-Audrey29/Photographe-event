@@ -59,35 +59,19 @@
 
             <div class="filtres-cat colonne">
                 <label for="category-select">Catégories</label>
-                <!-- <select id="category-select"> -->
-                <!-- <option value="all" hidden></option> -->
-                <!-- <option value="all">Toutes les catégories</option> -->
-                <?php
-                // Récupérer les catégories
-                $categories = get_categories();
-
-                // Vérifier s'il y a des catégories
-                if ($categories) {
-                    $select_options = '<option value="">Sélectionner une catégorie</option>';
-
-                    foreach ($categories as $category) {
-                        $select_options .= '<option value="' . $category->term_id . '">' . $category->name . '</option>';
-                    }
-
-                    // Afficher le menu déroulant des catégories
-                    wp_dropdown_categories(array(
-                        'show_option_none' => ' ',
-                        'option_none_value' => '',
-                        'taxonomy' => 'category',
-                        'name' => 'category-dropdown', // Nom du champ de sélection
-                        // 'orderby' => 'name',
-                        'selected' => false, // Catégorie sélectionnée par défaut
-                        'echo' => true,
-                        'class' => 'category-dropdown' // Classe CSS facultative
+                <select id="category-select"> -->
+                    <option value="all" hidden></option>
+                    <option value="all">Toutes les catégories</option>
+                    <?php
+                    $categories = get_terms(array(
+                        "taxonomy" => "categories",
+                        "hide_empty" => false,
                     ));
-                }
-                ?>
-                <?php galerie_filtres('categories'); ?>
+                    foreach ($categories as $categorie) {
+                        echo '<option value="' . $categorie->slug . '">' . $categorie->name . '</option>';
+                    }
+                    ?>
+                    <?php galerie_filtres('categories'); ?>
                 </select>
 
             </div>
@@ -102,14 +86,14 @@
                     <option value="all">Tous les formats</option>
                     <?php
                     $formats = get_terms(array(
-                        "taxonomy" => "format",
+                        "taxonomy" => "formats",
                         "hide_empty" => false,
                     ));
                     foreach ($formats as $format) {
                         echo '<option value="' . $format->slug . '">' . $format->name . '</option>';
                     }
                     ?>
-                    <?php galerie_filtres('format'); ?>
+                    <?php galerie_filtres('formats'); ?>
                 </select>
 
             </div>
@@ -122,6 +106,7 @@
 
             <label for="date-select">Trier par</label>
             <select id="date-select">
+                <option value="all" hidden></option>
                 <option value="DESC">Nouveautés</option>
                 <option value="ASC">Les plus anciennes</option>
             </select>
@@ -133,18 +118,20 @@
     <!-- affichage des images  -->
 
     <div class="galerie-container">
-        <?php $galerie = query_posts(
-            array(
-                'post_type' => 'photo',
-                'orderby' => 'date',
-                'order' => 'DESC',
-                'posts_per_page' => 2,
-                'paged' => 1,
-            )
-        );
+        <?php
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $galerie = new WP_Query(array(
+            'post_type' => 'photo',
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'posts_per_page' => 12,
+            'paged' => $paged,
+        ));
 
         galeriePhotos($galerie, false);
+
         ?>
+
 
     </div>
 

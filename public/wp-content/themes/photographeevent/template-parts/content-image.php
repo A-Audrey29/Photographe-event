@@ -8,6 +8,15 @@ $thumbnail_alt = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_al
 
 // Récupérer le titre de l'article
 $article_title = get_the_title();
+
+// Récupérer le titre de l'article
+$categories = get_terms(array(
+    'taxonomy' => 'nom_de_la_taxonomie',
+    'hide_empty' => false,
+));
+
+// var_dump($categories)
+
 ?>
 
 <div class="galerie-photo">
@@ -20,21 +29,15 @@ $article_title = get_the_title();
             <a href="#">
                 <img class="icon-fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/fullscreen.png" alt="Icône de plein écran" />
             </a>
-        </div>
 
-        <div class="galerie-img-info">
-            <p><?php echo $article_title; ?></p>
-            <?php
-            // Récupérer les catégories de l'article
-            $categories = get_the_category();
 
-            // Parcourir les catégories et afficher leurs noms
-            if (!empty($categories)) {
-                foreach ($categories as $category) {
-                    echo '<p class="galerie-cat">' . $category->name . '</p>';
-                }
-            }
-            ?>
+            <div class="galerie-img-info">
+                <p><?php echo $article_title; ?></p>
+
+                <!-- Récupérer les catégories de l'article -->
+                <p class="galerie-cat"><?php echo the_terms(get_the_ID(), 'categories', false); ?>
+                </p>
+            </div>
         </div>
     </div>
 </div>

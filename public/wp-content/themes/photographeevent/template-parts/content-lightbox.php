@@ -26,12 +26,12 @@
     </div>
 </div>
 
-<div class="more-fleches">
+<div class="fleches">
     <?php if (!empty($prevPhoto)) {
         $prevThumbnail = get_the_post_thumbnail_url($prevPhoto->ID);
         $prevLink = get_permalink($prevPhoto); ?>
         <a href="<?php echo $prevLink; ?>">
-            <img class="fleche fleche_gauche" src="<?php echo get_template_directory_uri(); ?>/assets/images/fleche_gauche.png" alt="Flèche vers la gauche" />
+            <img class="flechegauche" src="<?php echo get_template_directory_uri(); ?>/assets/images/fleche_gauche.png" alt="Flèche vers la gauche" />
         </a>
     <?php } else { ?>
         <p></p>
@@ -40,18 +40,18 @@
         $nextThumbnail = get_the_post_thumbnail_url($nextPhoto->ID);
         $nextLink = get_permalink($nextPhoto); ?>
         <a href="<?php echo $nextLink; ?>">
-            <img class="fleche fleche_droite" src="<?php echo get_template_directory_uri(); ?>/assets/images/fleche_droite.png" alt="Flèche vers la droite" />
+            <img class="flechedroite" src="<?php echo get_template_directory_uri(); ?>/assets/images/fleche_droite.png" alt="Flèche vers la droite" />
         </a>
     <?php } else { ?>
         <p></p>
     <?php } ?>
 </div>
-<div class="photo-hover-container">
-    <div class="photo-hover">
+<div class="photo-hovercontainer">
+    <div class="photohover">
         <?php
         if (isset($prevThumbnail) && !empty($prevThumbnail)) {
             // Afficher l'image suivante
-            echo '<img class="prev-photo" src="' . $prevThumbnail . '" alt="affichage de la photo précédente" />';
+            echo '<img class="prevphoto" src="' . $prevThumbnail . '" alt="affichage de la photo précédente" />';
         } else {
             // Afficher un message d'erreur ou une image par défaut
             echo '<p></p>';
