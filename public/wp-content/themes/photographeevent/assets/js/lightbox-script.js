@@ -1,6 +1,7 @@
 // Sélectionner la lightbox et le bouton de fermeture
 let lightboxModal = document.querySelector('.lightbox');
 let btnCloseLightbox = document.querySelector('.lightbox-close');
+const lightbox = document.querySelector('.lightbox');
 
 // Fonction pour ouvrir la lightbox
 
@@ -13,7 +14,7 @@ document.querySelectorAll('.icon-fullscreen').forEach((icon) => {
         modalImage.src = selectedImage.src;
         modalImage.alt = selectedImage.alt;
         modal.style.display = 'block'
-        modal.classList.add('active')
+        modal.classList.add('active')      
     })
 })
 
@@ -30,7 +31,6 @@ btnCloseLightbox.addEventListener('click', closeLightbox);
 // navigation sur les flèches prev et next
 
 document.addEventListener('DOMContentLoaded', function() {
-    const lightbox = document.querySelector('.lightbox');
     const prevButton = lightbox.querySelector('.lightbox-prev');
     const nextButton = lightbox.querySelector('.lightbox-next');
     const buttonlightbox = document.querySelectorAll('.lightbox-photo');
@@ -67,37 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     lightbox.setAttribute('data-current-index', 0);
 });
 
-// single-photo : slide au hover des flèches 
 
-const slide = document.querySelector(".lightbox-image")
-const previousSlide = document.querySelector(".lightbox-prev")
-const nextSlide = document.querySelector("lightbox-next")
-
-// Récupérer les éléments HTML pour ajouter un événement au survol
-let flecheGauche = document.querySelector('.fleche_gauche')
-let flecheDroite = document.querySelector('.fleche_droite')
-let previousImage = document.querySelector('.prev-photo')
-let nextImage = document.querySelector('.next-photo')
-
-if (nextImage && previousImage) {
-  nextImage.style.opacity = 0
-  previousImage.style.opacity = 0
-} 
-
-// Ajouter un événement au survol des éléments HTML
-navigationPhotos(flecheGauche, previousImage)
-navigationPhotos(flecheDroite, nextImage)
-
-function navigationPhotos(fleche, image) {
-  if (fleche) {
-    fleche.addEventListener('mouseover', function() {
-      image.style.opacity = '1'
-    })
-    fleche.addEventListener('mouseout', function() {
-      image.style.opacity = '0'
-    })
-  }
-}
 
 
 // document.addEventListener('DOMContentLoaded', function() {
@@ -151,35 +121,6 @@ function navigationPhotos(fleche, image) {
 //     }
 // })
 //   });
-
-
-
-
- // Lorsque les flèches gauche et droite sont cliquées
- lightbox.querySelector('.fleche-gauche').addEventListener('click', function(e) {
-    e.stopPropagation(); // Empêche la propagation de l'événement pour éviter la fermeture de la lightbox
-    // parseInt permet de recuperer une chaine de caractères en entier 
-    var currentIndex = parseInt(lightbox.getAttribute('data-current-index'));
-    var previousButton = buttonlightbox[currentIndex - 1];
-    if (previousButton) {
-      previousButton.click();
-      lightbox.setAttribute('data-current-index', currentIndex - 1);
-    }
-  });
-
-  lightbox.querySelector('.fleche-droite').addEventListener('click', function(e) {
-    e.stopPropagation(); // Empêche la propagation de l'événement pour éviter la fermeture de la lightbox
-
-    var currentIndex = parseInt(lightbox.getAttribute('data-current-index'));
-    var nextButton = buttonlightbox[currentIndex + 1];
-    if (nextButton) {
-      nextButton.click();
-      lightbox.setAttribute('data-current-index', currentIndex + 1);
-    }
-  });
-
-
-  
 
 
 
@@ -249,3 +190,36 @@ function navigationPhotos(fleche, image) {
 // });
 
 
+  var listOfIconFullScreen = document.querySelectorAll('.icon-fullscreen');
+
+  // Lorsque l'un des boutons est cliqué
+  listOfIconFullScreen.forEach(function(button, index) {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Enregistrer l'index du bouton cliqué pour la navigation
+      lightbox.setAttribute('data-current-index', index);
+    });
+  });
+
+// Lorsque les flèches gauche et droite sont cliquées
+lightbox.querySelector('.lightbox-prev').addEventListener('click', function(e) {
+    e.stopPropagation(); // Empêche la propagation de l'événement pour éviter la fermeture de la lightbox
+    // parseInt permet de recuperer une chaine de caractères en entier 
+    var currentIndex = parseInt(lightbox.getAttribute('data-current-index'));
+    var previousButton = listOfIconFullScreen[currentIndex - 1];
+    if (previousButton) {
+      previousButton.click();
+      lightbox.setAttribute('data-current-index', currentIndex - 1);
+    }
+  });
+
+  lightbox.querySelector('.lightbox-next').addEventListener('click', function(e) {
+    e.stopPropagation(); // Empêche la propagation de l'événement pour éviter la fermeture de la lightbox
+
+    var currentIndex = parseInt(lightbox.getAttribute('data-current-index'));
+    var nextButton = listOfIconFullScreen[currentIndex + 1];
+    if (nextButton) {
+      nextButton.click();
+      lightbox.setAttribute('data-current-index', currentIndex + 1);
+    }
+  });

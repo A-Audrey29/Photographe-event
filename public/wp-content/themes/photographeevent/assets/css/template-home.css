@@ -88,7 +88,7 @@
 
 .galerie-photo {
     /* width: 37vw; */
-    height: 39.5vw;
+    /* height: 39.5vw; */
 }
 
 .galerie {
@@ -122,6 +122,8 @@
 .galerie-img img{
     width: 37vw;
     height: 37vw;
+    margin-top: 5%;
+    margin-top: 5%;
     position: relative;
     max-height: 550px;
     max-width: 550px;

@@ -38,12 +38,15 @@
 }
 
 .photo-container {
+  min-height: 360px;
   position: relative;
   display: inline-block;
 }
 
-.photo-container > img {
-  height: 52em;
+.img-hover{
+  min-height: 360px;
+  height: 69vw;
+
 }
 
     /* section "cette photo vous interesse?" */

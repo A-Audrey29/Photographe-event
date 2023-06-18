@@ -22,11 +22,14 @@
 				</p><?php echo get_field('annee'); ?>
 			</li>
 		</div>
-		<div class="photo-container part">
+
+		<div class="photo-container galerie-img part close-modale-lightbox">
 			<?php if (has_post_thumbnail()) : ?>
-				<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" class="post-thumbnail" />
+				<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" class="post-thumbnail" id="img-fullscreen" />
 				<img class="icon-oeil" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_oeil.png" alt="Icône en forme d'oeil" />
-				<img class="icon-fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/fullscreen.png" alt="Icône de plein écran" />
+				<a href="#">
+					<img class="icon-fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/fullscreen.png" alt="Icône de plein écran" />
+				</a>
 			<?php endif; ?>
 			<?php the_content(); ?>
 
