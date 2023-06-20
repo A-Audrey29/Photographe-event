@@ -1,23 +1,21 @@
 // pagination
 
 jQuery(document).ready(function($) {
+  let currentPage = 1;
   // Add event listener to the click of links with class "ajax"
   $('#load-more').on('click', function(event) {
-      let currentIndex = parseInt($('#load-more').attr('data-current-index'));
-
-      event.preventDefault(); // Prevent the default behavior of the link
+      currentPage++;
       // Send an AJAX request to the server
       $.ajax({
           url: 'wp-admin/admin-ajax.php', // Use the global ajaxurl variable provided by WordPress
           method: 'POST', // HTTP method to use
           data: {
               action: 'weichie_load_more',
-              paged: currentIndex + 1,
+              paged: currentPage,
           },
           success: function(res) {
-              // console.log(res);
+              console.log(res);
               $('.galerie-container').append(res);
-              $('#load-more').attr('data-current-index', currentIndex + 1);
           },
           error: function(res) {
               console.log('Error');
@@ -25,6 +23,53 @@ jQuery(document).ready(function($) {
           }
       });
   });
+
+
+
+// julien
+
+// // Attacher un événement "change" à chaque select
+// jQuery('#cat-filter, #for-filter, #for-date').on('change', function() {
+
+//   // Récupérer la valeur de chaque select
+//   var cat = jQuery('#cat-filter').val();
+//   var format = jQuery('#for-filter').val();
+//   var tri = jQuery('#for-date').val();
+
+//   // Créer un objet de données pour la requête AJAX
+//   var data = {
+//     action: 'filter_photos'
+//   };
+
+//   // Ajouter chaque valeur qui n'est pas vide à l'objet de données
+//   if (cat) {
+//     data.cat = cat;
+//   }
+//   if (format) {
+//     data.format = format;
+//   }
+//   if (tri) {
+//     data.tri = tri;
+//   }
+
+//   // Effectuer une requête AJAX vers le fichier PHP approprié
+//   jQuery.ajax({
+//     url: '/NathalieMota/wp-admin/admin-ajax.php',
+//     type: 'POST',
+//     data: data,
+//     success: function(response) {
+//       $('.container_thumbnail_block').html(response); // Remplacer le contenu
+//     }
+//   });
+// });
+
+
+
+
+
+
+
+
 
   // Filtre Catégories
   $('#category-select').on('change', function() {
@@ -48,200 +93,28 @@ jQuery(document).ready(function($) {
       let date_order = $(this).val();
       filtrerPhotos(cat_slug, format_slug, date_order);
   });
-  // Fonction de filtrage des photos
-  function filtrerPhotos(cat_slug, format_slug, date_order) {
-   
-    console.log('hello')
-
-     console.log(cat_slug, format_slug, date_order);
-      $.ajax({
-          url: 'wp-admin/admin-ajax.php', // Use the global ajaxurl variable provided by WordPress
-          type: 'POST',
-          data: {
-              action: 'filtrer_photos',
-              cat_slug: cat_slug,
-              format_slug: format_slug,
-              date_order: date_order,
-          },
-          beforeSend: function() {
-              // Afficher un indicateur de chargement
-              $('.galerie-container').addClass('loading');
-          },
-          success: function(response) {
-              // Mettre à jour le contenu de la galerie avec les photos filtrées
-              $('.galerie-container').html(response);
-          },
-          complete: function() {
-              // Enlever l'indicateur de chargement
-              $('.galerie-container').removeClass('loading');
-          },
-         
-      });
-  }
+  
+  jQuery('#cat1, #format1, #date1').on('change', function() {
+    var categorie = jQuery('#cat1').val();
+    var format = jQuery('#format1').val();
+    var date = jQuery('#date1').val();
+  
+    var data = {
+      action: 'filter_post',
+      categorie: categorie,
+      format: format,
+      date: date // Ajout de la clé 'date' avec la valeur sélectionnée
+    };
+  
+    jQuery.ajax({
+      type: 'POST',
+      url: '/wp-admin/admin-ajax.php',
+      data: data,
+      success: function(res) {
+        $('.photo_toutephoto').html(res);
+        $('.chargerplus').empty();
+      }
+    });
 });
 
-    
-      
-
-
-
-      
-
-// (function($) {
-//   $(document).ready(function() {
-
-//     // Fonction pour filtrer les photos
-//     function filtrerPhotos(categorie, format, date) {
-//       var data = {
-//         action: 'filtrer_photos',
-//         categorie: categorie,
-//         format: format,
-//         date: date
-//       };
-
-//       $.ajax({
-//         url: ajaxurl,
-//         type: 'POST',
-//         data: data,
-//         beforeSend: function() {
-//           // Afficher un indicateur de chargement ou masquer les résultats précédents si nécessaire
-//         },
-//         success: function(response) {
-//           // Mettre à jour la section des photos avec les nouvelles photos filtrées
-//           $('.galerie-photos').html(response);
-//         },
-//         error: function(xhr, status, error) {
-//           // Gérer les erreurs de la requête AJAX
-//         },
-//         complete: function() {
-//           // Cacher l'indicateur de chargement si nécessaire
-//         }
-//       });
-//     }
-
-//     // Événement de changement de catégorie
-//     $('.categorie-dropdown').on('change', function() {
-//       var categorie = $(this).val();
-//       var format = $('.format-dropdown').val();
-//       var date = $('.date-dropdown').val();
-
-//       filtrerPhotos(categorie, format, date);
-//     });
-
-//     // Événement de changement de format
-//     $('.format-dropdown').on('change', function() {
-//       var categorie = $('.categorie-dropdown').val();
-//       var format = $(this).val();
-//       var date = $('.date-dropdown').val();
-
-//       filtrerPhotos(categorie, format, date);
-//     });
-
-//     // Événement de changement de date
-//     $('.date-dropdown').on('change', function() {
-//       var categorie = $('.categorie-dropdown').val();
-//       var format = $('.format-dropdown').val();
-//       var date = $(this).val();
-
-//       filtrerPhotos(categorie, format, date);
-//     });
-
-//   });
-// })(jQuery);
-
-
-// jQuery(document).ready(function($) {
-//   // Filter by category
-//   $('.category-dropdown').on('change', function() {
-//     var selectedCategory = $(this).val(); // Get the selected category
-
-//     // Send an AJAX request to filter the photos by category
-//     $.ajax({
-//       url: 'wp-admin/admin-ajax.php', // URL to send the request to
-//       method: 'POST', // HTTP method to use
-//       data: {
-//         action: 'filtrer_par_categorie',
-//         cat_id: selectedCategory
-//       },
-//       success: function(res) {
-//         // Display the filtered photos
-//         $('.galerie-container').html(res);
-//       },
-//       error: function(res) {
-//         console.log('Error');
-//       }
-//     });
-//   });
-
-//   // Filter by format
-//   $('.format-dropdown').on('change', function() {
-//     var selectedFormat = $(this).val(); // Get the selected format
-
-//     // Send an AJAX request to filter the photos by format
-//     $.ajax({
-//       url: 'wp-admin/admin-ajax.php', // URL to send the request to
-//       method: 'POST', // HTTP method to use
-//       data: {
-//         action: 'filtrer_par_format',
-//         format: selectedFormat
-//       },
-//       success: function(res) {
-//         // Display the filtered photos
-//         $('.galerie-container').html(res);
-//       },
-//       error: function(res) {
-//         console.log('Error');
-//       }
-//     });
-//   });
-// });
-
-
-
-
-// jQuery(document).ready(function($) {
-//   // Add event listener to the change event of the category dropdown
-//   $('.category-dropdown').on('change', function() {
-//     var selectedCategory = $(this).val(); // Get the selected category
-
-//     // Send an AJAX request to filter the photos by category
-//     $.ajax({
-//       url: 'wp-admin/admin-ajax.php', // URL to send the request to
-//       method: 'POST', // HTTP method to use
-//       data: {
-//         action: 'filtrer_par_categorie',
-//         cat_id: selectedCategory
-//       },
-//       success: function(res) {
-//         // Display the filtered photos
-//         $('.galerie-container').html(res);
-//       },
-//       error: function(res) {
-//         console.log('Error');
-//       }
-//     });
-//   });
-
-//   // Add event listener to the change event of the format dropdown
-//   $('.format-dropdown').on('change', function() {
-//     var selectedFormat = $(this).val(); // Get the selected format
-
-//     // Send an AJAX request to filter the photos by format
-//     $.ajax({
-//       url: 'wp-admin/admin-ajax.php', // URL to send the request to
-//       method: 'POST', // HTTP method to use
-//       data: {
-//         action: 'filtrer_par_format',
-//         format: selectedFormat
-//       },
-//       success: function(res) {
-//         // Display the filtered photos
-//         $('.galerie-container').html(res);
-//       },
-//       error: function(res) {
-//         console.log('Error');
-//       }
-//     });
-//   });
-// });
-
+});

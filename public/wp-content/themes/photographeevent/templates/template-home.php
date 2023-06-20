@@ -5,9 +5,12 @@
  */
 ?>
 
-<!-- hero -->
+
 
 <?php get_header(); ?>
+
+
+<!-- hero -->
 
 <div class="hero-container">
     <h1 class="nom-site"><?php the_title() ?></h1>
@@ -58,8 +61,8 @@
             <!-- categories -->
 
             <div class="filtres-cat colonne">
-                <label for="category-select">Catégories</label>
-                <select id="category-select"> -->
+                <label for="cat1">Catégories</label>
+                <select id="cat1"> -->
                     <option value="all" hidden></option>
                     <option value="all">Toutes les catégories</option>
                     <?php
@@ -80,8 +83,8 @@
 
             <div class="filtre-format colonne">
 
-                <label for="format-select">Formats</label>
-                <select id="format-select">
+                <label for="format1">Formats</label>
+                <select id="format1">
                     <option value="all" hidden></option>
                     <option value="all">Tous les formats</option>
                     <?php
@@ -104,8 +107,8 @@
 
         <div class="filtre-tri colonne">
 
-            <label for="date-select">Trier par</label>
-            <select id="date-select">
+            <label for="date1">Trier par</label>
+            <select id="date1">
                 <option value="all" hidden></option>
                 <option value="DESC">Nouveautés</option>
                 <option value="ASC">Les plus anciennes</option>
@@ -117,7 +120,7 @@
 
     <!-- affichage des images  -->
 
-    <div class="galerie-container">
+    <div class="galerie-container container_thumbnail_block" id="container_thumbnail_block">
         <?php
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         $galerie = new WP_Query(array(

@@ -119,7 +119,7 @@
     }
   } */
 
-.galerie-img img{
+.size-img img{
     width: 37vw;
     height: 37vw;
     margin-top: 5%;
@@ -152,13 +152,13 @@
     height: 37vw; */
 }
 
-.galerie-img:hover .galerie-hover-icon{
+.size-img:hover .galerie-hover-icon{
     opacity: 1;
 }
 
     /* galerie icones et txt  */
 
-.galerie-img, .photo-container {
+.size-img, .photo-container {
     position: relative;
 }
 
@@ -173,12 +173,12 @@
     transition: opacity 0.3s ease-in-out;
 }
     
-.galerie-img .icon-oeil .icon-fullscreen, .photo-container .icon-oeil .icon-fullscreen {
+.size-img .icon-oeil .icon-fullscreen, .photo-container .icon-oeil .icon-fullscreen {
     display: block;
     margin: 0 auto;
 }
 
-.galerie-img .icon-oeil, .photo-container .icon-oeil {
+.size-img .icon-oeil, .photo-container .icon-oeil {
     position: absolute;
     width: 35px;
     height: 35px;
@@ -191,7 +191,7 @@
 
 .galerie-img-info {
     position: relative;
-    top: 23px;
+    top: 5px;
     right: 2px;
     color: white;
     padding: 0 1em;
@@ -202,20 +202,24 @@
     align-items: center;
 }
 
-.galerie-img-info p {
+.size-img-info p {
     height: 100%;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     z-index: 4;
 }
 
+.galerie-title {
+    color: white;
+}
+
 .galerie-cat > a {
     color: white !important;
 }
 
-.galerie-img:hover .icon-oeil, .galerie-img:hover .icon-fullscreen, 
+.size-img:hover .icon-oeil, .size-img:hover .icon-fullscreen, 
 .photo-container:hover .icon-oeil, .photo-container:hover .icon-fullscreen,
-.galerie-img:hover .galerie-img-info>p {
+.size-img:hover .size-img-info>p {
     opacity: 1;
 }
 
@@ -232,7 +236,7 @@
         height: 79vw;
     }
 
-     .galerie-img #img-fullscreen{
+     .size-img #img-fullscreen{
         /* .img-fullscreen { */
         width: 75vw;
         min-height: 75vw;

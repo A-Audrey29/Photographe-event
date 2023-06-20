@@ -1,4 +1,4 @@
-<!-- intégration de la zone de contenu -->
+<!-- section information et photo de la single-photo -->
 <div>
 	<ul class="photo-info">
 		<div class="info part">
@@ -23,7 +23,7 @@
 			</li>
 		</div>
 
-		<div class="photo-container galerie-img part close-modale-lightbox">
+		<div class="photo-container galerie-img part close-modale-lightbox photo-single">
 			<?php if (has_post_thumbnail()) : ?>
 				<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" class="post-thumbnail" id="img-fullscreen" />
 				<img class="icon-oeil" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_oeil.png" alt="Icône en forme d'oeil" />

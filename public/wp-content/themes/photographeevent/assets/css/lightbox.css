@@ -1,11 +1,3 @@
-/* #lightbox-container {
-    display: none;
-    margin: 0 10%;
-    min-height: 100vh;
-
-    display: flex;
-} */
-
 .lightbox {
     display: none;
     position: fixed;
@@ -18,7 +10,6 @@
     z-index: 10;
 
     animation: slide-down 1s ease;
-
 }
 
 .active {
@@ -28,12 +19,13 @@
 
 .lightbox-container {
     width: 90%;
-    height: 100%;
+    height: 90%;
     margin: auto;
     /* padding: 5% 0; */
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .lightbox-container img{
@@ -41,6 +33,8 @@
     max-height: 90%;
     margin: auto;
 }
+
+/* fermeture  */
 
 .lightbox-close {
     background: none;
@@ -61,10 +55,11 @@
     transform: rotate(90deg);
 }
 
+/* flèches gauche et droite */
+
 .lightbox-next,
 .lightbox-prev {
-  background: aliceblue;
-  /* background: none; */
+  background: none;
   border: none;
   position: relative;
   top: 50%;
@@ -74,69 +69,38 @@
 }
 
 .lightbox-next {
-    /* right: -94%; */
-    margin-left: 94%;
+    margin-left: 90%;
 }
 
 .lightbox-prev{
-    /* left: -94%; */
     width: 9%;
-    /* margin-left: 2%; */
     position: relative;
     top: 52%;
 }
 
+/* information  */
+
+.lightbox-img-info {
+    display: flex;
+    flex-direction: column;
+}
+
 .lightbox-photo-info {
     margin-left: 6%;
-
 }
 
-.cat-annee{
-    display: flex;
+.lightbox-titre {
+    margin-bottom: 0 !important;
 }
 
-
-
-
-
-/* .lightbox-img {
-    height: 90%;
-    width: auto;
-
+.lightbox-cat-annee{
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-} */
+    justify-content: flex-start;
+}
 
-
-
-/* @media screen and (max-width: 1000px) {
-    lightbox__close {
-        margin-left: 91%;
-        margin-top: 1%;
-    }
-
-    lightbox__image {
-        width: 90%;
-        height: auto;
-    }
-
-    lightbox__image>img {
-        width: 100%;
-        height: 100%;
-    }
-} */
-
-    /* animations */
-
-
-/* .lightbox {
-    overflow: hidden;
-    transform: scale(.1);
-    transition: transform 330ms ease-in-out;
-}    */
-
-
+.lightbox-cat-annee .lightbox-annee {
+    padding-left: 11px;
+}
 
 .site__navigation__next{
     position: relative;

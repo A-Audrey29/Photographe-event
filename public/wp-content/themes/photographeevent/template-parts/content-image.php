@@ -20,7 +20,7 @@ $categories = get_terms(array(
 ?>
 
 <div class="galerie-photo">
-    <div class="galerie-img ">
+    <div class="galerie-img size-img">
         <img id="img-fullscreen" class="img-hover" src="<?php echo $thumbnail_url[0]; ?>" alt="<?php echo $thumbnail_alt; ?>" title="<?php echo $article_title; ?>">
         <div class="galerie-hover-icon">
             <a href="<?php echo get_post_permalink(); ?>">
@@ -31,8 +31,9 @@ $categories = get_terms(array(
             </a>
 
 
-            <div class="galerie-img-info">
-                <p><?php echo $article_title; ?></p>
+            <div class="galerie-img-info" data-date=<?php $post_date = get_the_date('Y');
+                                                    echo $post_date; ?>>
+                <p class="galerie-title"><?php echo $article_title; ?></p>
                 <p class="galerie-cat"><?php echo the_terms(get_the_ID(), 'categories', false); ?></p>
             </div>
         </div>

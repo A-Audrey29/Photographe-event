@@ -37,16 +37,12 @@
   object-fit: contain;
 }
 
-.photo-container {
+.info-photo .photo-single:first-child {
+  height: 69vw;
+
   min-height: 360px;
   position: relative;
   display: inline-block;
-}
-
-.img-hover{
-  min-height: 360px;
-  height: 69vw;
-
 }
 
     /* section "cette photo vous interesse?" */
