@@ -36,6 +36,7 @@ document.querySelectorAll('.galerie-img-info').forEach((galerieImg) => {
 
 
 // Fonction pour fermer la lightbox
+
 function closeLightbox() {
     lightboxModal.style.display = 'none';
 }

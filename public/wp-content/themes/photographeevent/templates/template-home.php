@@ -54,15 +54,17 @@
             }
         }
 
-        galerie_filtres(); ?>
+        ?>
 
         <div class="filtres">
 
             <!-- categories -->
 
             <div class="filtres-cat colonne">
-                <label for="cat1">Catégories</label>
-                <select id="cat1"> -->
+                <!-- <form id="categories" class="js-filter-form filtres__taxonomie_categories"> -->
+
+                <label for="cat">Catégories</label>
+                <select id="category-select"> -->
                     <option value="all" hidden></option>
                     <option value="all">Toutes les catégories</option>
                     <?php
@@ -74,17 +76,17 @@
                         echo '<option value="' . $categorie->slug . '">' . $categorie->name . '</option>';
                     }
                     ?>
-                    <?php galerie_filtres('categories'); ?>
                 </select>
+                <!-- </form> -->
 
             </div>
 
             <!-- formats -->
 
             <div class="filtre-format colonne">
-
-                <label for="format1">Formats</label>
-                <select id="format1">
+                <!-- <form id="format" class="js-filter-form filtres_taxonomie__formats"> -->
+                <label for="format">Formats</label>
+                <select id="format-select">
                     <option value="all" hidden></option>
                     <option value="all">Tous les formats</option>
                     <?php
@@ -96,8 +98,8 @@
                         echo '<option value="' . $format->slug . '">' . $format->name . '</option>';
                     }
                     ?>
-                    <?php galerie_filtres('formats'); ?>
                 </select>
+                <!-- </form> -->
 
             </div>
 
@@ -106,15 +108,15 @@
         <!-- tri -->
 
         <div class="filtre-tri colonne">
-
-            <label for="date1">Trier par</label>
-            <select id="date1">
+            <!-- <form id="ordre" class="js-filter-form filtres_taxonomie__formats"> -->
+            <label for="date">Trier par</label>
+            <select id="date-select">
                 <option value="all" hidden></option>
                 <option value="DESC">Nouveautés</option>
                 <option value="ASC">Les plus anciennes</option>
             </select>
         </div>
-
+        <!-- </form> -->
     </div>
     </div>
 

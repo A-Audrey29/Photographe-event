@@ -26,7 +26,6 @@ menuBtn.addEventListener('click', function() {
 
 // fermeture du menu burger
 
-
 function toggleMenu () {  
     const navbar = document.querySelector('.main-navigation')
     const burger = document.querySelector('.menu-toggle')

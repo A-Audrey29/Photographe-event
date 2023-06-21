@@ -24,97 +24,84 @@ jQuery(document).ready(function($) {
       });
   });
 
-
-
-// julien
-
-// // Attacher un événement "change" à chaque select
-// jQuery('#cat-filter, #for-filter, #for-date').on('change', function() {
-
-//   // Récupérer la valeur de chaque select
-//   var cat = jQuery('#cat-filter').val();
-//   var format = jQuery('#for-filter').val();
-//   var tri = jQuery('#for-date').val();
-
-//   // Créer un objet de données pour la requête AJAX
-//   var data = {
-//     action: 'filter_photos'
-//   };
-
-//   // Ajouter chaque valeur qui n'est pas vide à l'objet de données
-//   if (cat) {
-//     data.cat = cat;
-//   }
-//   if (format) {
-//     data.format = format;
-//   }
-//   if (tri) {
-//     data.tri = tri;
-//   }
-
-//   // Effectuer une requête AJAX vers le fichier PHP approprié
-//   jQuery.ajax({
-//     url: '/NathalieMota/wp-admin/admin-ajax.php',
-//     type: 'POST',
-//     data: data,
-//     success: function(response) {
-//       $('.container_thumbnail_block').html(response); // Remplacer le contenu
-//     }
-//   });
-// });
-
-
-
-
-
-
-
-
-
   // Filtre Catégories
-  $('#category-select').on('change', function() {
-      let cat_slug = $(this).val();
-      let format_slug = $('#format-select').val();
-      let date_order = $('#date-select').val();
-      filtrerPhotos(cat_slug, format_slug, date_order);
-  });
-  // Filtre Formats
-  $('#format-select').on('change', function() {
-      let cat_slug = $('#category-select').val();
-      let format_slug = $(this).val();
-      let date_order = $('#date-select').val();
-      filtrerPhotos(cat_slug, format_slug, date_order);
-  });
 
-  // Tri des photos
-  $('#date-select').on('change', function() {
-      let cat_slug = $('#category-select').val();
-      let format_slug = $('#format-select').val();
-      let date_order = $(this).val();
-      filtrerPhotos(cat_slug, format_slug, date_order);
-  });
   
-  jQuery('#cat1, #format1, #date1').on('change', function() {
-    var categorie = jQuery('#cat1').val();
-    var format = jQuery('#format1').val();
-    var date = jQuery('#date1').val();
-  
-    var data = {
-      action: 'filter_post',
-      categorie: categorie,
-      format: format,
-      date: date // Ajout de la clé 'date' avec la valeur sélectionnée
-    };
-  
-    jQuery.ajax({
-      type: 'POST',
-      url: '/wp-admin/admin-ajax.php',
-      data: data,
-      success: function(res) {
-        $('.photo_toutephoto').html(res);
-        $('.chargerplus').empty();
-      }
+  jQuery(document).ready(function($) {
+    // Écouteur d'événement pour le changement de filtres
+    $('#category-select, #format-select, #date-select').change(function() {
+        // Obtenez les valeurs des filtres sélectionnés
+        let cat = $('#category-select').val();
+        let photoFormat = $('#format-select').val();
+        let date = $('#date-select').val();
+        
+        // Faites la requête Ajax
+        $.ajax({
+            url: 'wp-admin/admin-ajax.php', // L'URL de l'action Ajax
+            method: 'POST',
+            data: {
+                action: 'galerie_filtres', // L'action à appeler dans functions.php
+                cat_id: cat, // Valeur du filtre de catégorie
+                format: photoFormat // Valeur du filtre de format
+            },
+            success: function(res) {
+                // Mettez à jour la galerie avec les résultats
+                $('.galerie-container').html(res);
+            },
+            error: function(xhr, status, error) {
+                // Gérer les erreurs
+                console.log(error, xhr, status);
+            }
+        });
     });
 });
+
+
+
+//   $('#category-select').on('change', function() {
+//       let cat_slug = $(this).val();
+//       let format_slug = $('#format-select').val();
+//       let date_order = $('#date-select').val();
+//       galerie_filtres(cat_slug, format_slug, date_order);
+//       console.log(cat_slug);
+//   });
+//   // Filtre Formats
+//   $('#format-select').on('change', function() {
+//       let cat_slug = $('#category-select').val();
+//       let format_slug = $(this).val();
+//       let date_order = $('#date-select').val();
+//       galerie_filtres(cat_slug, format_slug, date_order);
+//   });
+
+//   // Tri des photos
+//   $('#date-select').on('change', function() {
+//       let cat_slug = $('#category-select').val();
+//       let format_slug = $('#format-select').val();
+//       let date_order = $(this).val();
+//       galerie_filtres(cat_slug, format_slug, date_order);
+//   });
+  
+//   jQuery('#cat, #format, #date').on('change', function() {
+//     let categorie = jQuery('#cat').val();
+//     let format = jQuery('#format').val();
+//     let date = jQuery('#date').val();
+  
+//     let data = {
+//       action: 'filter_post',
+//       categorie: categorie,
+//       format: format,
+//       date: date 
+//     };
+  
+//     jQuery.ajax({
+//       type: 'POST',
+//       url: '/wp-admin/admin-ajax.php',
+//       data: data,
+//       success: function(res) {
+//         $('.photo_toutephoto').html(res);
+//         $('.chargerplus').empty();
+//       }
+//     });
+// });
 
 });
