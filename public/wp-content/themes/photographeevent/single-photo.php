@@ -81,18 +81,31 @@ endwhile; // End of the loop.
 	<h3 class="aimez-aussi-titre">VOUS AIMEREZ AUSSI</h3>
 	<div class="galerie-container">
 		<?php
+		$categorie = strip_tags(get_the_term_list($post->ID, 'categories'));
 		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-		$args = new WP_Query(array(
+		$morePhotos = new WP_Query(array(
 			'post_type' => 'photo',
 			'post__not_in' => array(get_the_ID()),
 			'orderby' => 'date',
 			'order' => 'DESC',
 			'posts_per_page' => 2,
 			'paged' => $paged,
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'categories',
+					'field' => 'slug',
+					'terms' => $categorie,
+				),
+			),
+
 		));
 
-		galeriePhotos($args, false);
-
+		$nombreImagesSimilaires = $morePhotos->post_count;
+		if ($nombreImagesSimilaires > 0) {
+			galeriePhotos($morePhotos, false);
+		} else {
+			echo '<p class="texte">Il n\'y a pas encore d\'autres photos à afficher dans cette catégorie.</p>';
+		}
 		?>
 	</div>
 

@@ -97,33 +97,39 @@ function galeriePhotos($ajaxposts)
 /**
  * 
  */
-function galerie_filtres($cat_name = 9, $format = 'paysage', $date = 'DESC')
+function galerie_filtres($cat = 9, $format = 'paysage', $date = 'DESC')
 {
-  
+    $format = isset($_POST['format']) ? sanitize_text_field($_POST['format']) : '';
+    $cat = isset($_POST['cat']) ? sanitize_text_field($_POST['cat']) : '';
+    $tri = isset($_POST['tri']) ? sanitize_text_field($_POST['tri']) : '';
+
 
     $ajaxposts = new WP_Query(
         array(
             'post_type' => 'photo',
             'posts_per_page' => 2,
-            'order' => $date,
+            'paged' => 1,
+            // 'order' => $date,
             'tax_query' => array(
                 'relation' => 'AND',
                 array(
                     'taxonomy' => 'category',
                     'field' => 'term_id',
-                    'terms' => $cat_name,
+                    'terms' => ($cat == -1 ? get_terms('categorie', array('fields' => 'slugs')) : $cat)
                 ),
                 array(
                     'taxonomy' => 'formats',
                     'field' => 'name',
-                    'terms' => $format,
+                    'terms' => ($format == -1 ? get_terms('format', array('fields' => 'slugs')) : $format)
                 ),
             ),
+            'orderby' => ($tri == 0 ? 'date' : ($tri == 1 ? 'comment_count' : 'date')),
+            'order' => ($tri == 2 ? 'ASC' : 'DESC')
         )
     );
 
     $response = '';
-    // var_dump($ajaxposts->have_posts());
+    var_dump($ajaxposts->have_posts());
 
     if ($ajaxposts->have_posts()) {
         while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
@@ -131,7 +137,7 @@ function galerie_filtres($cat_name = 9, $format = 'paysage', $date = 'DESC')
         endwhile;
     } else {
         $response = '';
-        var_dump($response);
+        // var_dump($response);
     }
 
     echo $response;
