@@ -61,45 +61,45 @@
             <!-- categories -->
 
             <div class="filtres-cat colonne">
-                <!-- <form id="categories" class="js-filter-form filtres__taxonomie_categories"> -->
+                <form id="categories" class="js-filter-form">
 
-                <label for="cat">Catégories</label>
-                <select id="category-select"> -->
-                    <option value="all" hidden></option>
-                    <option value="all">Toutes les catégories</option>
-                    <?php
-                    $categories = get_terms(array(
-                        "taxonomy" => "categories",
-                        "hide_empty" => false,
-                    ));
-                    foreach ($categories as $categorie) {
-                        echo '<option value="' . $categorie->slug . '">' . $categorie->name . '</option>';
-                    }
-                    ?>
-                </select>
-                <!-- </form> -->
+                    <label for="categories-select">Catégories</label>
+                    <select id="categories-select"> -->
+                        <option value="all" hidden></option>
+                        <option value="all">Toutes les catégories</option>
+                        <?php
+                        $categories = get_terms(array(
+                            "taxonomy" => "categories",
+                            "hide_empty" => false,
+                        ));
+                        foreach ($categories as $categorie) {
+                            echo '<option value="' . $categorie->slug . '">' . $categorie->name . '</option>';
+                        }
+                        ?>
+                    </select>
+                </form>
 
             </div>
 
             <!-- formats -->
 
             <div class="filtre-format colonne">
-                <!-- <form id="format" class="js-filter-form filtres_taxonomie__formats"> -->
-                <label for="format">Formats</label>
-                <select id="format-select">
-                    <option value="all" hidden></option>
-                    <option value="all">Tous les formats</option>
-                    <?php
-                    $formats = get_terms(array(
-                        "taxonomy" => "formats",
-                        "hide_empty" => false,
-                    ));
-                    foreach ($formats as $format) {
-                        echo '<option value="' . $format->slug . '">' . $format->name . '</option>';
-                    }
-                    ?>
-                </select>
-                <!-- </form> -->
+                <form id="format" class="js-filter-form">
+                    <label for="format-select">Formats</label>
+                    <select id="format-select">
+                        <option value="all" hidden></option>
+                        <option value="all">Tous les formats</option>
+                        <?php
+                        $formats = get_terms(array(
+                            "taxonomy" => "formats",
+                            "hide_empty" => false,
+                        ));
+                        foreach ($formats as $format) {
+                            echo '<option value="' . $format->slug . '">' . $format->name . '</option>';
+                        }
+                        ?>
+                    </select>
+                    <!-- </form> -->
 
             </div>
 
@@ -108,13 +108,13 @@
         <!-- tri -->
 
         <div class="filtre-tri colonne">
-            <!-- <form id="ordre" class="js-filter-form filtres_taxonomie__formats"> -->
-            <label for="date">Trier par</label>
-            <select id="date-select">
-                <option value="all" hidden></option>
-                <option value="DESC">Nouveautés</option>
-                <option value="ASC">Les plus anciennes</option>
-            </select>
+            <form id="ordre" class="js-filter-form">
+                <label for="date">Trier par</label>
+                <select id="date-select">
+                    <option value="all" hidden></option>
+                    <option value="DESC">Nouveautés</option>
+                    <option value="ASC">Les plus anciennes</option>
+                </select>
         </div>
         <!-- </form> -->
     </div>

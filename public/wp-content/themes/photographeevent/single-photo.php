@@ -7,6 +7,8 @@
 
 <?php get_header(); ?>
 
+<!-- section info de la photo et la photo -->
+
 <?php
 /* Start the Loop */
 while (have_posts()) :
@@ -16,6 +18,8 @@ while (have_posts()) :
 
 endwhile; // End of the loop.
 ?>
+
+<!-- section "cette photo vous intéresse ?" -->
 
 <div class="more">
 	<div class="more-tx-btn">

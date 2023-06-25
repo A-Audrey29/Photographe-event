@@ -94,57 +94,52 @@ function galeriePhotos($ajaxposts)
     endwhile;
 }
 
-/**
- * 
- */
+// function afficherTaxonomies($nomTaxonomie)
+// {
+//     if ($terms = get_terms(array(
+//         'taxonomy' => $nomTaxonomie,
+//         'orderby' => 'name'
+//     ))) {
+//         foreach ($terms as $term) {
+//             echo '<option class="js-filter-item" value="' . $term->slug . '">' . $term->name . '</option>';
+//         }
+//     }
+// }
+
+
 function galerie_filtres($cat = 9, $format = 'paysage', $date = 'DESC')
 {
-    $format = isset($_POST['format']) ? sanitize_text_field($_POST['format']) : '';
-    $cat = isset($_POST['cat']) ? sanitize_text_field($_POST['cat']) : '';
-    $tri = isset($_POST['tri']) ? sanitize_text_field($_POST['tri']) : '';
-
-
-    $ajaxposts = new WP_Query(
+    $requeteAjax = new WP_Query(
         array(
             'post_type' => 'photo',
-            'posts_per_page' => 2,
-            'paged' => 1,
-            // 'order' => $date,
-            'tax_query' => array(
+            'orderby' => 'date',
+            'order' => $_POST['orderDirection'],
+            'posts_per_page' => 4,
+            'paged' => $_POST['page'],
+            'tax_query' =>
+            array(
                 'relation' => 'AND',
-                array(
-                    'taxonomy' => 'category',
-                    'field' => 'term_id',
-                    'terms' => ($cat == -1 ? get_terms('categorie', array('fields' => 'slugs')) : $cat)
-                ),
-                array(
-                    'taxonomy' => 'formats',
-                    'field' => 'name',
-                    'terms' => ($format == -1 ? get_terms('format', array('fields' => 'slugs')) : $format)
-                ),
-            ),
-            'orderby' => ($tri == 0 ? 'date' : ($tri == 1 ? 'comment_count' : 'date')),
-            'order' => ($tri == 2 ? 'ASC' : 'DESC')
+                $_POST['categorieSelection'] != "all" ?
+                    array(
+                        'taxonomy' => $_POST['categorieTaxonomie'],
+                        'field' => 'slug',
+                        'terms' => $_POST['categorieSelection'],
+                    )
+                    : '',
+                $_POST['formatSelection'] != "all" ?
+                    array(
+                        'taxonomy' => $_POST['formatTaxonomie'],
+                        'field' => 'slug',
+                        'terms' => $_POST['formatSelection'],
+                    )
+                    : '',
+            )
         )
     );
-
-    $response = '';
-    var_dump($ajaxposts->have_posts());
-
-    if ($ajaxposts->have_posts()) {
-        while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
-            $response .=  get_template_part('template-parts/content', 'photo');
-        endwhile;
-    } else {
-        $response = '';
-        // var_dump($response);
-    }
-
-    echo $response;
-    exit;
+    galeriePhotos($requeteAjax, true);
 }
-add_action('wp_ajax_galerie_filtres', 'galerie_filtres');
 add_action('wp_ajax_nopriv_galerie_filtres', 'galerie_filtres');
+add_action('wp_ajax_galerie_filtres', 'galerie_filtres');
 
 
 

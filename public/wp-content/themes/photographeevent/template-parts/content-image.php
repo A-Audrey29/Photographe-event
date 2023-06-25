@@ -11,7 +11,7 @@ $article_title = get_the_title();
 
 // Récupérer le titre de l'article
 $categories = get_terms(array(
-    'taxonomy' => 'nom_de_la_taxonomie',
+    'taxonomy' => 'categories',
     'hide_empty' => false,
 ));
 
