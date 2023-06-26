@@ -7,7 +7,7 @@
 
 <?php get_header(); ?>
 
-<!-- section info de la photo et la photo -->
+<!-- section info-photo et la photo -->
 
 <?php
 /* Start the Loop */
@@ -79,6 +79,9 @@ endwhile; // End of the loop.
 	</div>
 
 </div>
+
+
+<!-- section : vous aimerez aussi -->
 
 <div class="galerie background">
 

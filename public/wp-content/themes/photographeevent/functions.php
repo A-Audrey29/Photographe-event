@@ -154,9 +154,6 @@ function weichie_load_more()
 {
     $paged = $_POST['paged']; // Récupère la valeur de 'paged' depuis la requête Ajax
 
-    // Ajouter un code de débogage pour afficher la valeur de 'paged'
-    // error_log('$_POST["paged"] value: ' . $paged);
-
     $ajaxposts = new WP_Query([
         'post_type' => 'photo',
         'posts_per_page' => 12, //12 / 14 = 2 pages
@@ -166,7 +163,6 @@ function weichie_load_more()
     ]);
 
     $response = '';
-    // var_dump($ajaxposts->have_posts());
 
     if ($ajaxposts->have_posts()) {
         while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
@@ -174,7 +170,6 @@ function weichie_load_more()
         endwhile;
     } else {
         $response = '';
-        // var_dump($response);
     }
 
     echo $response;

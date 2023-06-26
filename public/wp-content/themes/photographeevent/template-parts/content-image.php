@@ -1,3 +1,5 @@
+<!-- intégration image medium 1/1 -->
+
 <?php
 
 $thumbnail_id = get_post_thumbnail_id();
@@ -14,8 +16,6 @@ $categories = get_terms(array(
     'taxonomy' => 'categories',
     'hide_empty' => false,
 ));
-
-// var_dump($categories)
 
 ?>
 

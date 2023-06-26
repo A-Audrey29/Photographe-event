@@ -5,8 +5,6 @@
  */
 ?>
 
-
-
 <?php get_header(); ?>
 
 
@@ -123,7 +121,6 @@
     <!-- affichage des images  -->
 
     <div class="galerie-container container_thumbnail_block" id="container_thumbnail_block">
-        <!-- <div class="galerie-container container_thumbnail_block" id="container_thumbnail_block" data-paged="<?php echo $paged; ?>"> -->
 
         <?php
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -136,12 +133,9 @@
         ));
 
         galeriePhotos($galerie, false);
-
         ?>
 
-
     </div>
-
 
     <!-- pagination -->
 

@@ -30,7 +30,7 @@
     .nom-site {
       font-size: 4.5em;
     }
-
+}
 @media all and (max-width: 800px) {
     .nom-site {
         font-size: 3.5em;
@@ -48,7 +48,7 @@
         font-size: 1.6em;
 }
 }
-}
+
 
 
 /* section des filtres */
@@ -98,11 +98,14 @@
 }
 
 .galerie-container {
-    break-inside: avoid; /* Éviter les sauts de colonne à l'intérieur des colonnes */
+    max-width: 1148px;
+    margin: auto;
+    padding: 20px 0;
 
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    justify-items: stretch;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: 20px;
+   
 }
 
 .size-img img{
@@ -117,7 +120,7 @@
 
 .galerie-hover-icon{
     position: absolute;
-    width: 95.5%;
+    width: 100%;
     height: 100%;
     left: 0;
     top: 0;
@@ -133,14 +136,12 @@
     justify-content: space-between;
     transition: ease-in-out 0.2s;
     opacity: 0;
-    /* background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
-    width: 37vw;
-    height: 37vw; */
 }
 
 .size-img:hover .galerie-hover-icon{
     opacity: 1;
 }
+
 
     /* galerie icones et txt  */
 
@@ -209,35 +210,6 @@
     opacity: 1;
 }
 
-/* @media all and (max-width: 965px){
-.filtre-format {
-    padding-left: 0px;
-}
-} */
-
-@media all and (max-width: 540px){
-
-    .galerie-container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .galerie-photo {
-        height: 79vw;
-    }
-
-     .size-img #img-fullscreen{
-        /* .img-fullscreen { */
-        width: 75vw;
-        min-height: 75vw;
-        margin: auto;
-    }
-
-    .icon-fullscreen {
-     top: 41px;
-    }
-}
 
 /* bouton "charger plus" */
 
@@ -271,10 +243,31 @@
     position: relative;
 }
 
-@media all and (max-width: 540px){  
-    .galerie-btn-container {
-        margin-top: 60px;
-        margin-bottom: 20px;
+@media all and (max-width: 540px){
+
+    .galerie-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
+    .galerie-photo {
+        height: 79vw;
+    }
+
+     .size-img #img-fullscreen{
+        /* .img-fullscreen { */
+        width: 75vw;
+        min-height: 75vw;
+        margin: auto;
+    }
+
+    .icon-fullscreen {
+     top: 41px;
+    }
+
+.galerie-btn-container {
+    margin-top: 60px;
+    margin-bottom: 20px;
+}   
 }

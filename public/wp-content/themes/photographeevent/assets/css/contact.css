@@ -13,7 +13,6 @@
 }
 
 
-
 /* Modal Content/Box */
 .modal-content {
   max-width: 597px;
@@ -84,8 +83,7 @@ background-color: transparent;
   }
 
   .wpforms-field-medium, .wpforms-field-large {
-    width: 190px !important;
-    
+    width: 190px !important;   
 }
 }
 

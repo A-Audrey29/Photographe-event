@@ -37,6 +37,14 @@
   object-fit: contain;
 }
 
+.photo-single {
+  height: 52.8em;
+}
+
+.photo-single img {
+  height: 100%;
+}
+
 .info-photo .photo-single:first-child {
   height: 69vw;
 
@@ -158,21 +166,13 @@
   margin-bottom: 5.6em;
 }
 
-
-
-@media all and (max-width: 1000px){
-  .photo-container > img {
-    height: 38em;
-  }
-}
-
 @media all and (max-width: 680px){
   .more-slider {
     display: none;
   }
 }
 
-@media all and (max-width: 600px){
+@media all and (max-width: 680px){
 
   .photo-info {
     flex-wrap: wrap;
