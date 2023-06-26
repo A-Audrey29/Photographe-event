@@ -67,45 +67,37 @@ jQuery(document).ready(function($) {
 // });
 
 
-  jQuery(document).ready(function($) {
+jQuery(document).ready(function($) {
     // Écouteur d'événement pour le changement de filtres
     $('#categories-select, #format-select, #date-select').change(function() {
         // Obtenez les valeurs des filtres sélectionnés
         let cat = $('#categories-select')
-        let categorieTaxonomie = cat.attr('id');
         let categorieSelection = cat.find('option:selected').val();
 
         let format = $('#format-select')
-        let formatTaxonomie = format.attr('id');
         let formatSelection = format.find('option:selected').val();
 
         let date = $('#date-select').find('option:selected').val();
 
         // Faites la requête Ajax
         $.ajax({
-            url: 'wp-admin/admin-ajax.php', // L'URL de l'action Ajax
+            url: '/wp-admin/admin-ajax.php', // L'URL de l'action Ajax
             method: 'POST',
-            dataType: 'html',
             data: {
                 action: 'galerie_filtres', // L'action à appeler dans functions.php
-                categorieTaxonomie: categorieTaxonomie,
-                categorieSelection: categorieSelection,
-                formatTaxonomie: formatTaxonomie,
                 formatSelection: formatSelection,
-                orderDirection: date,
+                categorieSelection: categorieSelection,
+                orderDirection: date
             },
             success: function(resultat) {
-                if ($) {
-                    $('.galerie-container').append(resultat);
-                }
-                else {
-                    $('.galerie-container').html(resultat);
-                }
+                console.log(resultat)
+                $('.galerie-container').html(resultat);
+
             },
             error: function(result) {
                 console.warn(result);
             }
-           
+
         });
     });
 });

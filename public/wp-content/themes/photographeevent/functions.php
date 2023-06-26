@@ -94,49 +94,53 @@ function galeriePhotos($ajaxposts)
     endwhile;
 }
 
-// function afficherTaxonomies($nomTaxonomie)
-// {
-//     if ($terms = get_terms(array(
-//         'taxonomy' => $nomTaxonomie,
-//         'orderby' => 'name'
-//     ))) {
-//         foreach ($terms as $term) {
-//             echo '<option class="js-filter-item" value="' . $term->slug . '">' . $term->name . '</option>';
-//         }
-//     }
-// }
+function afficherTaxonomies($nomTaxonomie)
+{
+    if ($terms = get_terms(array(
+        'taxonomy' => $nomTaxonomie,
+        'orderby' => 'name'
+    ))) {
+        foreach ($terms as $term) {
+            echo '<option class="js-filter-item" value="' . $term->slug . '">' . $term->name . '</option>';
+        }
+    }
+}
 
 
 function galerie_filtres($cat = 9, $format = 'paysage', $date = 'DESC')
 {
-    $requeteAjax = new WP_Query(
-        array(
-            'post_type' => 'photo',
-            'orderby' => 'date',
-            'order' => $_POST['orderDirection'],
-            'posts_per_page' => 4,
-            'paged' => $_POST['page'],
-            'tax_query' =>
+    $categorieSelection = $_POST['categorieSelection'];
+    $formatSelection = $_POST['formatSelection'];
+    $args = array(
+        'post_type' => 'photo',
+        'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => $_POST['orderDirection'],
+        'tax_query' => array(
             array(
                 'relation' => 'AND',
                 $_POST['categorieSelection'] != "all" ?
                     array(
-                        'taxonomy' => $_POST['categorieTaxonomie'],
+                        'taxonomy' => 'categories',
                         'field' => 'slug',
                         'terms' => $_POST['categorieSelection'],
                     )
                     : '',
                 $_POST['formatSelection'] != "all" ?
                     array(
-                        'taxonomy' => $_POST['formatTaxonomie'],
+                        'taxonomy' => 'formats',
                         'field' => 'slug',
                         'terms' => $_POST['formatSelection'],
                     )
                     : '',
-            )
-        )
+            ),
+        ),
     );
-    galeriePhotos($requeteAjax, true);
+
+    $query = new WP_Query($args);
+    galeriePhotos($query, true);
+
+    wp_die();
 }
 add_action('wp_ajax_nopriv_galerie_filtres', 'galerie_filtres');
 add_action('wp_ajax_galerie_filtres', 'galerie_filtres');

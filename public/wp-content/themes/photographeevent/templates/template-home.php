@@ -60,8 +60,8 @@
 
             <!-- categories -->
 
-            <div class="filtres-cat colonne">
-                <form id="categories" class="js-filter-form">
+            <div class="filtres-cat  js-filter">
+                <form id="categories" class="js-filter-form colonne">
 
                     <label for="categories-select">Catégories</label>
                     <select id="categories-select"> -->
@@ -83,8 +83,8 @@
 
             <!-- formats -->
 
-            <div class="filtre-format colonne">
-                <form id="format" class="js-filter-form">
+            <div class="filtre-format">
+                <form id="format" class="js-filter-form  colonne">
                     <label for="format-select">Formats</label>
                     <select id="format-select">
                         <option value="all" hidden></option>
@@ -99,7 +99,7 @@
                         }
                         ?>
                     </select>
-                    <!-- </form> -->
+                </form>
 
             </div>
 
@@ -107,8 +107,8 @@
 
         <!-- tri -->
 
-        <div class="filtre-tri colonne">
-            <form id="ordre" class="js-filter-form">
+        <div class="filtre-tri">
+            <form id="ordre" class="js-filter-form colonne">
                 <label for="date">Trier par</label>
                 <select id="date-select">
                     <option value="all" hidden></option>
@@ -116,13 +116,15 @@
                     <option value="ASC">Les plus anciennes</option>
                 </select>
         </div>
-        <!-- </form> -->
+        </form>
     </div>
     </div>
 
     <!-- affichage des images  -->
 
     <div class="galerie-container container_thumbnail_block" id="container_thumbnail_block">
+        <!-- <div class="galerie-container container_thumbnail_block" id="container_thumbnail_block" data-paged="<?php echo $paged; ?>"> -->
+
         <?php
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         $galerie = new WP_Query(array(

@@ -117,22 +117,22 @@
 
 .galerie-hover-icon{
     position: absolute;
-  width: 95%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
+    width: 95.5%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
     rgba(0, 0, 0, 0.92) 100%
-  );
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: ease-in-out 0.2s;
-  opacity: 0;
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: ease-in-out 0.2s;
+    opacity: 0;
     /* background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
     width: 37vw;
     height: 37vw; */
